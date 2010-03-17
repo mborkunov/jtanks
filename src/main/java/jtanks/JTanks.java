@@ -266,6 +266,7 @@ public final class JTanks {
 
     class GameWindowFocusListener implements FocusListener {
 
+        @Override
         public void focusGained(FocusEvent e) {
             turnOffRepeating();
             getWindow().setTitle("JTanks");

@@ -1,0 +1,192 @@
+/*
+ * GNU General Public License v2
+ *
+ * @version $Id: ResourceManagerTest.java 261 2009-07-05 04:13:37Z ru.energy $
+ */
+package jtanks.system;
+
+import java.awt.Cursor;
+import java.awt.Image;
+import java.awt.image.VolatileImage;
+import java.io.InputStream;
+import java.net.URL;
+import java.util.List;
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
+import static org.junit.Assert.*;
+import static java.lang.System.out;
+
+public class ResourceManagerTest {
+
+    public ResourceManagerTest() {
+    }
+
+    @BeforeClass
+    public static void setUpClass() throws Exception {
+    }
+
+    @AfterClass
+    public static void tearDownClass() throws Exception {
+    }
+
+    @Before
+    public void setUp() {
+    }
+
+    @After
+    public void tearDown() {
+    }
+
+    /**
+     * Test of preload method, of class ResourceManager.
+     */
+    @Test
+    public void testPreload() {
+        System.out.println("preload");
+        ResourceManager.preload();
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of getVolatileImage method, of class ResourceManager.
+     */
+    @Test
+    public void testGetVolatileImage() {
+        System.out.println("getVolatileImage");
+        String name = "";
+        VolatileImage expResult = null;
+        VolatileImage result = ResourceManager.getVolatileImage(name);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of getImage method, of class ResourceManager.
+     */
+    @Test
+    public void testGetImage_String() {
+        System.out.println("getImage");
+        String name = "";
+        Image expResult = null;
+        Image result = ResourceManager.getImage(name);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of getImage method, of class ResourceManager.
+     */
+    @Test
+    public void testGetImage_URL() {
+        System.out.println("getImage");
+        URL resource = null;
+        Image expResult = null;
+        Image result = ResourceManager.getImage(resource);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of getRandomQuote method, of class ResourceManager.
+     */
+    @Test
+    public void testGetRandomQuote() {
+        System.out.println("getRandomQuote");
+        Quote expResult = null;
+        Quote result = ResourceManager.getRandomQuote();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of fileExists method, of class ResourceManager.
+     */
+    @Test
+    public void testFileExists() {
+        System.out.println("fileExists");
+        String filename = "";
+        boolean expResult = false;
+        boolean result = ResourceManager.fileExists(filename);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of getImageResource method, of class ResourceManager.
+     */
+    @Test
+    public void testGetImageResource() {
+        System.out.println("getImageResource");
+        String name = "";
+        URL expResult = null;
+        URL result = ResourceManager.getImageResource(name);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of getStream method, of class ResourceManager.
+     */
+    @Test
+    public void testGetStream() {
+        System.out.println("getStream");
+        String name = "";
+        InputStream expResult = null;
+        InputStream result = ResourceManager.getStream(name);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of getAnimationResources method, of class ResourceManager.
+     */
+    @Test
+    public void testGetAnimationResources() {
+        System.out.println("getAnimationResources");
+        String source = "";
+        List<URL> expResult = null;
+        List<URL> result = ResourceManager.getAnimationResources(source);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of createInvisibleCursor method, of class ResourceManager.
+     */
+    @Test
+    public void testCreateInvisibleCursor() {
+        System.out.println("createInvisibleCursor");
+        Cursor expResult = null;
+        Cursor result = ResourceManager.createInvisibleCursor();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of getImages method, of class ResourceManager.
+     */
+    @Test
+    public void testGetImages() {
+        System.out.println("getImages");
+        List<URL> resources = null;
+        List<Image> expResult = null;
+        //List<Image> result = ResourceManager.getImages(resources);
+        //assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+}

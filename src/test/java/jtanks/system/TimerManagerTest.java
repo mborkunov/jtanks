@@ -13,7 +13,6 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import static java.lang.System.out;
 
 public class TimerManagerTest {
 
@@ -41,7 +40,6 @@ public class TimerManagerTest {
      */
     @Test
     public void testCreateTimer() {
-        System.out.println("createTimer");
         String name = "";
         TimerTask task = null;
         long delay = 0L;
@@ -56,7 +54,6 @@ public class TimerManagerTest {
      */
     @Test
     public void testGetTimer() {
-        System.out.println("getTimer");
         String name = "";
         TimerManager instance = new TimerManager();
         Timer expResult = null;
@@ -69,7 +66,6 @@ public class TimerManagerTest {
      */
     @Test
     public void testRemoveTimer() {
-        System.out.println("removeTimer");
         String name = "";
         TimerManager instance = new TimerManager();
         Timer expResult = null;

@@ -45,7 +45,6 @@ public class ResourceManagerTest {
      */
     @Test
     public void testPreload() {
-        System.out.println("preload");
         ResourceManager.preload();
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
@@ -56,11 +55,10 @@ public class ResourceManagerTest {
      */
     @Test
     public void testGetVolatileImage() {
-        System.out.println("getVolatileImage");
         String name = "";
         VolatileImage expResult = null;
-        VolatileImage result = ResourceManager.getVolatileImage(name);
-        assertEquals(expResult, result);
+        //VolatileImage result = ResourceManager.getVolatileImage(name);
+        //assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
@@ -70,11 +68,10 @@ public class ResourceManagerTest {
      */
     @Test
     public void testGetImage_String() {
-        System.out.println("getImage");
         String name = "";
         Image expResult = null;
-        Image result = ResourceManager.getImage(name);
-        assertEquals(expResult, result);
+        //Image result = ResourceManager.getImage(name);
+        //assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
@@ -84,11 +81,10 @@ public class ResourceManagerTest {
      */
     @Test
     public void testGetImage_URL() {
-        System.out.println("getImage");
         URL resource = null;
         Image expResult = null;
-        Image result = ResourceManager.getImage(resource);
-        assertEquals(expResult, result);
+        //Image result = ResourceManager.getImage(resource);
+        //assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
@@ -98,7 +94,6 @@ public class ResourceManagerTest {
      */
     @Test
     public void testGetRandomQuote() {
-        System.out.println("getRandomQuote");
         Quote expResult = null;
         Quote result = ResourceManager.getRandomQuote();
         assertEquals(expResult, result);
@@ -111,7 +106,6 @@ public class ResourceManagerTest {
      */
     @Test
     public void testFileExists() {
-        System.out.println("fileExists");
         String filename = "";
         boolean expResult = false;
         boolean result = ResourceManager.fileExists(filename);
@@ -125,7 +119,6 @@ public class ResourceManagerTest {
      */
     @Test
     public void testGetImageResource() {
-        System.out.println("getImageResource");
         String name = "";
         URL expResult = null;
         URL result = ResourceManager.getImageResource(name);
@@ -139,7 +132,6 @@ public class ResourceManagerTest {
      */
     @Test
     public void testGetStream() {
-        System.out.println("getStream");
         String name = "";
         InputStream expResult = null;
         InputStream result = ResourceManager.getStream(name);
@@ -153,7 +145,6 @@ public class ResourceManagerTest {
      */
     @Test
     public void testGetAnimationResources() {
-        System.out.println("getAnimationResources");
         String source = "";
         List<URL> expResult = null;
         List<URL> result = ResourceManager.getAnimationResources(source);
@@ -167,7 +158,6 @@ public class ResourceManagerTest {
      */
     @Test
     public void testCreateInvisibleCursor() {
-        System.out.println("createInvisibleCursor");
         Cursor expResult = null;
         Cursor result = ResourceManager.createInvisibleCursor();
         assertEquals(expResult, result);
@@ -180,7 +170,6 @@ public class ResourceManagerTest {
      */
     @Test
     public void testGetImages() {
-        System.out.println("getImages");
         List<URL> resources = null;
         List<Image> expResult = null;
         //List<Image> result = ResourceManager.getImages(resources);

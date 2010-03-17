@@ -13,7 +13,6 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import static java.lang.System.out;
 
 public class DisplayManagerTest {
 
@@ -41,7 +40,6 @@ public class DisplayManagerTest {
      */
     @Test
     public void testGetDisplayMode() {
-        System.out.println("getDisplayMode");
         DisplayManager instance = new DisplayManager();
         DisplayMode expResult = null;
         DisplayMode result = instance.getDisplayMode();
@@ -55,7 +53,6 @@ public class DisplayManagerTest {
      */
     @Test
     public void testSetDisplayMode() {
-        System.out.println("setDisplayMode");
         DisplayMode mode = null;
         DisplayManager instance = new DisplayManager();
         instance.setDisplayMode(mode);
@@ -68,7 +65,6 @@ public class DisplayManagerTest {
      */
     @Test
     public void testRestoreDisplay() {
-        System.out.println("restoreDisplay");
         DisplayManager instance = new DisplayManager();
         instance.restoreDisplay();
         // TODO review the generated test code and remove the default call to fail.
@@ -80,7 +76,6 @@ public class DisplayManagerTest {
      */
     @Test
     public void testGetSystemDisplayMode() {
-        System.out.println("getSystemDisplayMode");
         DisplayManager instance = new DisplayManager();
         DisplayMode expResult = null;
         DisplayMode result = instance.getSystemDisplayMode();
@@ -94,7 +89,6 @@ public class DisplayManagerTest {
      */
     @Test
     public void testIsDisplayChangeSupported() {
-        System.out.println("isDisplayChangeSupported");
         DisplayManager instance = new DisplayManager();
         boolean expResult = false;
         boolean result = instance.isDisplayChangeSupported();
@@ -108,7 +102,6 @@ public class DisplayManagerTest {
      */
     @Test
     public void testGetDisplayModes() {
-        System.out.println("getDisplayModes");
         DisplayManager instance = new DisplayManager();
         DisplayMode[] expResult = null;
         DisplayMode[] result = instance.getDisplayModes();
@@ -122,7 +115,6 @@ public class DisplayManagerTest {
      */
     @Test
     public void testGetCurrentDisplayMode() {
-        System.out.println("getCurrentDisplayMode");
         DisplayManager instance = new DisplayManager();
         DisplayMode expResult = null;
         DisplayMode result = instance.getCurrentDisplayMode();
@@ -136,7 +128,6 @@ public class DisplayManagerTest {
      */
     @Test
     public void testGetGraphicsDevice() {
-        System.out.println("getGraphicsDevice");
         DisplayManager instance = new DisplayManager();
         GraphicsDevice expResult = null;
         GraphicsDevice result = instance.getGraphicsDevice();
@@ -150,7 +141,6 @@ public class DisplayManagerTest {
      */
     @Test
     public void testIsFullScreen() {
-        System.out.println("isFullScreen");
         DisplayManager instance = new DisplayManager();
         boolean expResult = false;
         boolean result = instance.isFullScreen();

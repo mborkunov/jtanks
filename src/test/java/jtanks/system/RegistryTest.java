@@ -33,7 +33,6 @@ public class RegistryTest {
      */
     @Test
     public void testSetGet() {
-        System.out.println("set get");
         Object key = Object.class.getClass();
         Object value = key.toString();
 
@@ -49,15 +48,12 @@ public class RegistryTest {
                 fail("Value cannot be null");
             }
         }
-
         Registry.set(key, value);
-
         assertEquals(value, Registry.get(key));
     }
 
     @Test
     public void testRemove() {
-        System.out.println("remove");
         Registry.set("hello", "bye");
         assertNotNull(Registry.get("hello"));
         Registry.remove("hello");

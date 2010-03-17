@@ -12,7 +12,6 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import static java.lang.System.out;
 
 public class ConfigTest {
     private Config config;
@@ -42,8 +41,6 @@ public class ConfigTest {
      */
     @Test
     public void testGet() {
-        out.println("get");
-
         assertNull(config.get("hello"));
         assertNotNull(config.get("fullscreen"));
     }
@@ -53,7 +50,6 @@ public class ConfigTest {
      */
     @Test
     public void testGetBoolean() {
-        out.println("get boolean");
         assertFalse(config.getBoolean("helloworld"));
     }
 
@@ -62,8 +58,6 @@ public class ConfigTest {
      */
     @Test
     public void testGetInteger() {
-        out.println("get integer");
-
         config.getInteger("maxfps");
 
         try {
@@ -78,7 +72,6 @@ public class ConfigTest {
      */
     @Test
     public void testSet_String_int() {
-        out.println("set integer");
         String key = "testKey";
         int value = 121;
 
@@ -94,7 +87,6 @@ public class ConfigTest {
      */
     @Test
     public void testSet_String_boolean() {
-        out.println("set boolean");
         String key = "testBooleanKey";
         boolean value = false;
 
@@ -110,7 +102,6 @@ public class ConfigTest {
      */
     @Test
     public void testSet_String_String() {
-        out.println("set string");
         String key = "testStringKey";
         String value = "testStringValue";
 
@@ -125,7 +116,6 @@ public class ConfigTest {
      */
     @Test
     public void testGetInstance() {
-        out.println("getInstance");
         assertSame(config, Config.getInstance());
     }
 
@@ -134,8 +124,6 @@ public class ConfigTest {
      */
     @Test
     public void testIterator() {
-        out.println("iterator");
-
         for (Object obj : config) {
             assertTrue(obj instanceof Map.Entry);
         }

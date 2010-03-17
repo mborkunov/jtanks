@@ -36,8 +36,6 @@ public class OSTest {
      */
     @Test
     public void testIsWindows() {
-        System.out.println("isWindows");
-
         if (os.contains("windows")) {
             assertTrue(OS.isWindows());
             assertFalse(OS.isMac());
@@ -50,8 +48,6 @@ public class OSTest {
      */
     @Test
     public void testIsMac() {
-        System.out.println("isMac");
-
         if (os.contains("mac")) {
             assertTrue(OS.isMac());
             assertFalse(OS.isUnix());
@@ -64,8 +60,6 @@ public class OSTest {
      */
     @Test
     public void testIsUnix() {
-        System.out.println("isUnix");
-
         if (os.contains("nux") || os.contains("nix")) {
             assertTrue(OS.isUnix());
             assertFalse(OS.isMac());

@@ -12,7 +12,6 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import static java.lang.System.out;
 
 public class MenuItemTest {
 
@@ -40,7 +39,6 @@ public class MenuItemTest {
      */
     @Test
     public void testSetCaller() {
-        System.out.println("setCaller");
         Screen caller = null;
         MenuItem instance = null;
         instance.setCaller(caller);
@@ -53,7 +51,6 @@ public class MenuItemTest {
      */
     @Test
     public void testGetScreen() throws Exception {
-        System.out.println("getScreen");
         MenuItem instance = null;
         Screen expResult = null;
         Screen result = instance.getScreen();
@@ -67,7 +64,6 @@ public class MenuItemTest {
      */
     @Test
     public void testSetData() {
-        System.out.println("setData");
         DataTransfer data = null;
         MenuItem instance = null;
         //instance.setData(data);
@@ -80,7 +76,6 @@ public class MenuItemTest {
      */
     @Test
     public void testSelect() {
-        System.out.println("select");
         boolean status = false;
         MenuItem instance = null;
         instance.select(status);
@@ -93,7 +88,6 @@ public class MenuItemTest {
      */
     @Test
     public void testIsSelected() {
-        System.out.println("isSelected");
         MenuItem instance = null;
         boolean expResult = false;
         boolean result = instance.isSelected();
@@ -107,7 +101,6 @@ public class MenuItemTest {
      */
     @Test
     public void testIsActive() {
-        System.out.println("isActive");
         MenuItem instance = null;
         boolean expResult = false;
         boolean result = instance.isActive();
@@ -121,7 +114,6 @@ public class MenuItemTest {
      */
     @Test
     public void testSetActive() {
-        System.out.println("setActive");
         boolean active = false;
         MenuItem instance = null;
         instance.setActive(active);
@@ -134,7 +126,6 @@ public class MenuItemTest {
      */
     @Test
     public void testToString() {
-        System.out.println("toString");
         MenuItem instance = null;
         String expResult = "";
         String result = instance.toString();

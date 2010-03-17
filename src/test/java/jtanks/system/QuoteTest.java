@@ -34,8 +34,6 @@ public class QuoteTest {
      */
     @Test
     public void testSetGetAuthor() {
-        System.out.println("set get author");
-
         Quote instance = new Quote();
         assertEquals(null, instance.getAuthor());
 
@@ -52,7 +50,6 @@ public class QuoteTest {
      */
     @Test
     public void testSetGetContent() {
-        System.out.println("set get content");
         String content = "Some text is here";
         Quote instance = new Quote();
 
@@ -68,14 +65,8 @@ public class QuoteTest {
      */
     @Test
     public void testToString() {
-        System.out.println("toString");
         Quote instance = new Quote("Author", "Quote content");
-
         assertEquals("Author: \"Quote content\"", instance.toString());
-        
-        
         assertEquals("null: \"null\"", new Quote().toString());
-
-
     }
 }

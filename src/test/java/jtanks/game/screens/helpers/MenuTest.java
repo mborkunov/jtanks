@@ -39,7 +39,6 @@ public class MenuTest {
      */
     @Test
     public void testAdd() {
-        System.out.println("add");
         MenuItem item = null;
         Menu instance = new Menu();
         instance.add(item);
@@ -52,7 +51,6 @@ public class MenuTest {
      */
     @Test
     public void testGetSelected() {
-        System.out.println("getSelected");
         Menu instance = new Menu();
         MenuItem expResult = null;
         MenuItem result = instance.getSelected();
@@ -66,7 +64,6 @@ public class MenuTest {
      */
     @Test
     public void testSelectNext() {
-        System.out.println("selectNext");
         Menu instance = new Menu();
         instance.selectNext();
         // TODO review the generated test code and remove the default call to fail.
@@ -78,7 +75,6 @@ public class MenuTest {
      */
     @Test
     public void testSelectPrevious() {
-        System.out.println("selectPrevious");
         Menu instance = new Menu();
         instance.selectPrevious();
         // TODO review the generated test code and remove the default call to fail.
@@ -90,7 +86,6 @@ public class MenuTest {
      */
     @Test
     public void testSelectedIndex() {
-        System.out.println("selectedIndex");
         Menu instance = new Menu();
         int expResult = 0;
         int result = instance.selectedIndex();
@@ -104,7 +99,6 @@ public class MenuTest {
      */
     @Test
     public void testGetItem() {
-        System.out.println("getItem");
         byte b = 0;
         Menu instance = new Menu();
         MenuItem expResult = null;
@@ -119,7 +113,6 @@ public class MenuTest {
      */
     @Test
     public void testSelect_MenuItem() {
-        System.out.println("select");
         MenuItem item = null;
         Menu instance = new Menu();
         instance.select(item);
@@ -132,7 +125,6 @@ public class MenuTest {
      */
     @Test
     public void testSelect_int() {
-        System.out.println("select");
         int index = 0;
         Menu instance = new Menu();
         instance.select(index);
@@ -145,7 +137,6 @@ public class MenuTest {
      */
     @Test
     public void testToArray() {
-        System.out.println("toArray");
         Menu instance = new Menu();
         MenuItem[] expResult = null;
         MenuItem[] result = instance.toArray();
@@ -159,7 +150,6 @@ public class MenuTest {
      */
     @Test
     public void testSetCaller() {
-        System.out.println("setCaller");
         Screen caller = null;
         Menu instance = new Menu();
         instance.setCaller(caller);
@@ -172,7 +162,6 @@ public class MenuTest {
      */
     @Test
     public void testSize() {
-        System.out.println("size");
         Menu instance = new Menu();
         int expResult = 0;
         int result = instance.size();

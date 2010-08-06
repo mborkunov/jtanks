@@ -31,6 +31,7 @@ public class Options extends Screen {
 
         Layout layout = new Layout();
         Checkbox checkbox = new Checkbox("Fullscreen");
+        checkbox.setChecked(Config.getInstance().getBoolean("fullscreen"));
         checkbox.setBinding(new Binding() {
             @Override
             public void process() {
@@ -42,14 +43,24 @@ public class Options extends Screen {
         layout.addChild(checkbox);
 
         Checkbox soundCheckbox = new Checkbox("Sound (Not supported yet)");
+        soundCheckbox.setChecked(Config.getInstance().getBoolean("sound"));
         soundCheckbox.setBinding(new Binding(){
             @Override
             public void process() {
-                boolean sound = ((Checkbox) control).checked();
-                Config.getInstance().set("sound", sound);
+                Config.getInstance().set("sound", ((Checkbox) control).checked());
             }
         });
         layout.addChild(soundCheckbox);
+
+        Checkbox betaLogo = new Checkbox("Show beta sign");
+        betaLogo.setChecked(Config.getInstance().getBoolean("beta"));
+        betaLogo.setBinding(new Binding(){
+            @Override
+            public void process() {
+                Config.getInstance().set("beta", ((Checkbox) control).checked());
+            }
+        });
+        layout.addChild(betaLogo);
         rootNode = layout;
     }
 

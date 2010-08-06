@@ -37,6 +37,7 @@ public class Config implements Iterable {
         defaults.put("maxfps", String.valueOf(50));
         defaults.put("fullscreen", Boolean.FALSE.toString());
         defaults.put("sound", Boolean.TRUE.toString());
+        defaults.put("beta", Boolean.TRUE.toString());
         defaults.put("window.width", String.valueOf(800));
         defaults.put("window.height", String.valueOf(600));
         defaults.put("font.family", String.valueOf("Georgia"));

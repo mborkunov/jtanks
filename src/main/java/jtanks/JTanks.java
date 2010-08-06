@@ -1,7 +1,7 @@
 /**
  * GNU General Public License v2
  * 
- * @version $Id: JTanks.java 311 2009-07-23 14:11:20Z ru.energy $
+ * @version $Id$
  */
 package jtanks;
 
@@ -168,15 +168,15 @@ public final class JTanks {
                 LogManager.getLogManager().readConfiguration(is);
             }
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(JTanks.class.getName()).log(Level.SEVERE, null, ex);
+            logger.log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
-            Logger.getLogger(JTanks.class.getName()).log(Level.SEVERE, null, ex);
+            logger.log(Level.SEVERE, null, ex);
         } finally {
             if (is != null) {
                 try {
                     is.close();
                 } catch (IOException ex) {
-                    Logger.getLogger(JTanks.class.getName()).log(Level.SEVERE, null, ex);
+                    logger.log(Level.SEVERE, null, ex);
                 }
             }
         }
@@ -187,7 +187,7 @@ public final class JTanks {
             try {
                 Runtime.getRuntime().exec("xset -r");
             } catch (IOException ex) {
-                Logger.getLogger(JTanks.class.getName()).log(Level.SEVERE, null, ex);
+                logger.log(Level.SEVERE, null, ex);
             }
         }
     }
@@ -197,7 +197,7 @@ public final class JTanks {
             try {
                 Runtime.getRuntime().exec("xset r");
             } catch (IOException ex) {
-                Logger.getLogger(JTanks.class.getName()).log(Level.SEVERE, null, ex);
+                logger.log(Level.SEVERE, null, ex);
             }
         }
     }

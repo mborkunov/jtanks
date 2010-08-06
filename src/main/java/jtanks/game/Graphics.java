@@ -1,7 +1,7 @@
 /*
  * GNU General Public License v2
  *
- * @version $Id: Graphics.java 302 2009-07-23 13:38:04Z ru.energy $
+ * @version $Id$
  */
 package jtanks.game;
 
@@ -165,9 +165,11 @@ public final class Graphics {
             g.setClip(0, 0, canvas.getWidth(), canvas.getHeight());
 
             gameState.getScreen().draw(g);
-            showSign(g);
+            if (Config.getInstance().getBoolean("beta")) {
+                showSign(g);
+            }
 
-            if (((Boolean) Registry.get("debug")).equals(Boolean.TRUE)) {
+            if (Registry.get("debug").equals(Boolean.TRUE)) {
                 showFPS(g);
             }
 

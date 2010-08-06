@@ -13,7 +13,7 @@ import jtanks.system.Config;
 
 public class Checkbox extends Control {
 
-    private boolean checked = Config.getInstance().getBoolean("fullscreen");
+    private boolean checked = false;
 
     {
         width = 15;

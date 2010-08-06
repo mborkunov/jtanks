@@ -26,7 +26,7 @@ public class Start extends Screen {
         menu.add(new MenuItem("Start", Maps.class, true));
         menu.add(new MenuItem("Options", Options.class));
         MenuItem menuItem = new MenuItem("Statistics", Statistics.class);
-        menuItem.setDisabled(true);
+        menuItem.setDisabled(false);
         menu.add(menuItem);
         menu.add(new MenuItem("Quit", Quit.class));
         menu.setCaller(this);

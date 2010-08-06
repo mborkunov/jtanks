@@ -20,6 +20,7 @@ public class Bullet extends Unit {
     public Bullet() {
         super();
         motion.setSpeed(6);
+
         model = new Rectangle();
         model.setWidth(.25);
         model.setHeight(.5);

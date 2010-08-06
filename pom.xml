@@ -34,6 +34,8 @@
                 <configuration>
                     <source>1.6</source>
                     <target>1.6</target>
+                    <debug>false</debug>
+                    <optimize>true</optimize>
                 </configuration>
             </plugin>
             <plugin>
@@ -48,7 +50,7 @@
                         </goals>
                         <configuration>
                             <outputDirectory>${basedir}/target/resources/resources</outputDirectory>
-                            <resources>          
+                            <resources>
                                 <resource>
                                     <directory>src/main/resources</directory>
                                     <filtering>true</filtering>

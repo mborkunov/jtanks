@@ -1,7 +1,7 @@
 /*
  * GNU General Public License v2
  *
- * @version $Id: Tank.java 301 2009-07-23 13:29:23Z ru.energy $
+ * @version $Id$
  */
 package jtanks.game.scene.units;
 
@@ -110,7 +110,7 @@ public class Tank extends Unit {
             return true;
         } else {
             int index = Arrays.asList(Motion.Direction.values()).indexOf(getMotion().getDirection());
-            return angle == index * 90 ? false : true;
+            return angle != index * 90;
         }
     }
 
@@ -131,12 +131,12 @@ public class Tank extends Unit {
     }
 
     public void affect(Bullet bullet) {
-        if (bullet.getOwner().equals(this) == false) {
+        if (!bullet.getOwner().equals(this)) {
         }
     }
 
     public void affect(Tank tank) {
-        if (remove == false && destroyed == false) {
+        if (!remove && !destroyed) {
             this.getMotion().setLock(true);
             tank.getMotion().setLock(true);
         }

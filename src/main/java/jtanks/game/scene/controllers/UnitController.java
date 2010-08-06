@@ -1,13 +1,15 @@
 /*
  * GNU General Public License v2
  *
- * @version $Id: UnitController.java 301 2009-07-23 13:29:23Z ru.energy $
+ * @version $Id$
  */
 package jtanks.game.scene.controllers;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.logging.Logger;
+
+import jtanks.game.scene.units.Enemy;
 import jtanks.game.scene.units.util.Motion;
 import jtanks.game.geometry.Model;
 import jtanks.game.geometry.Position;
@@ -147,13 +149,17 @@ public class UnitController extends Controller {
         int deltaAngle;
         if (desiredAngle > currentAngle) {
             deltaAngle = desiredAngle - currentAngle;
-            clockwise = desiredAngle - currentAngle > currentAngle + 360 - desiredAngle ? false : true;
+            clockwise = desiredAngle - currentAngle <= currentAngle + 360 - desiredAngle;
         } else {
             deltaAngle = currentAngle - desiredAngle;
-            clockwise = currentAngle - desiredAngle > desiredAngle + 360 - currentAngle ? true : false;
+            clockwise = currentAngle - desiredAngle > desiredAngle + 360 - currentAngle;
         }
 
         int rotateAngle = (int) (tankRotateSpeed / 1000f * time);
+        if (tank instanceof Enemy) {
+            rotateAngle *= 1.3;
+        }
+
         if (deltaAngle < rotateAngle) {
             rotateAngle = deltaAngle;
         }

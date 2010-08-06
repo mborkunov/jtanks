@@ -209,6 +209,9 @@ public class Battle extends Screen implements Preloadable {
                 case KeyEvent.VK_ENTER:
                 case KeyEvent.VK_Y:
                     if (showQuitDialog) {
+                        if (Registry.get(TimerManager.class).getTimer(Battle.class) == null) {
+                            Registry.get(TimerManager.class).stopTimer(Battle.class);
+                        }
                         GameState state = JTanks.getInstance().getGameState();
                         state.setScreen(new Start());
                         state.resume();

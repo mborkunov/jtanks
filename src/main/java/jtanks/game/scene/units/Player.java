@@ -22,7 +22,7 @@ public class Player extends Tank {
     @Override
     public boolean removeNow() {
         Registry.remove("playerTank");
-        StatisticsData stats = ((StatisticsData) Registry.get("statistics"));
+        StatisticsData stats = Registry.get(StatisticsData.class);
         stats.setDeaths(stats.getDeaths() + 1);
         return super.removeNow();
     }
@@ -31,7 +31,7 @@ public class Player extends Tank {
     public boolean shoot() {
         boolean result;
         if ((result = super.shoot())) {
-            StatisticsData stats = ((StatisticsData) Registry.get("statistics"));
+            StatisticsData stats = Registry.get(StatisticsData.class);
             stats.setBullets(stats.getBullets() + 1);
             Registry.get(SoundManager.class).play("shoot");
         }

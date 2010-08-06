@@ -45,12 +45,12 @@ public class Bullet extends Unit {
         if (unit.getClass().equals(getClass())) {
             this.removeNow();
             unit.remove();
-            ((SoundManager) Registry.get(SoundManager.class)).play("bullets_impact");
+            Registry.get(SoundManager.class).play("bullets_impact");
         } else if (getOwner().getClass().equals(Player.class) && unit.getClass().equals(Enemy.class)) {
             unit.lock();
             unit.remove();
             removeNow();
-            StatisticsData stats = ((StatisticsData) Registry.get("statistics"));
+            StatisticsData stats = Registry.get(StatisticsData.class);
             stats.setTanks(stats.getTanks() + 1);
         } else if (getOwner().getClass().equals(Enemy.class) && unit.getClass().equals(Player.class)) {
             unit.lock();

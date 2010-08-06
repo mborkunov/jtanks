@@ -1,7 +1,7 @@
 /*
  * GNU General Public License v2
  *
- * @version $Id: GameState.java 279 2009-07-17 16:42:49Z ru.energy $
+ * @version $Id$
  */
 package jtanks.game;
 
@@ -82,7 +82,7 @@ public final class GameState {
     }
 
     public void initialize() {
-        Registry.set("statistics", StatisticsData.load());
+        Registry.set(StatisticsData.class, StatisticsData.load());
         setScreen(screen);
     }
 
@@ -122,7 +122,7 @@ public final class GameState {
     public void quit() {
         screen.terminate();
         Config.getInstance().save();
-        ((StatisticsData) Registry.get("statistics")).store();
+        Registry.get(StatisticsData.class).store();
         System.exit(0);
     }
 

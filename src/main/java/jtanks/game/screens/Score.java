@@ -41,7 +41,7 @@ public class Score extends Screen {
     public void draw(Graphics2D g) {
         if (map == null || nextMap == null) {
             map = (Map) data.get("map");
-            ((StatisticsData) Registry.get("statistics")).setLastMap(map.getId());
+            Registry.get(StatisticsData.class).setLastMap(map.getId());
             nextMap = (Map) data.get("nextMap");
         }
 

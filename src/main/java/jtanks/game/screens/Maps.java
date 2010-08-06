@@ -51,7 +51,7 @@ public strictfp class Maps extends Screen {
 
         boolean disabled = false;
         for (int i = 0; i < maps.size(); i++) {
-                if (!disabled && i > ((StatisticsData) Registry.get("statistics")).getLastMap()) {
+                if (!disabled && i > Registry.get(StatisticsData.class).getLastMap()) {
                 disabled = true;
             }
             Map map = maps.get(i);
@@ -185,7 +185,7 @@ public strictfp class Maps extends Screen {
                     break;
                 case KeyEvent.VK_ESCAPE:
                     JTanks.getInstance().getGameState().setScreen(new Start());
-                    ((SoundManager) Registry.get(SoundManager.class)).play("menu");
+                    Registry.get(SoundManager.class).play("menu");
                     break;
                 case KeyEvent.VK_ENTER:
                     try {
@@ -197,7 +197,7 @@ public strictfp class Maps extends Screen {
                     } catch (IllegalAccessException ex) {
                         Logger.getLogger(Listener.class.getName()).log(Level.SEVERE, null, ex);
                     }
-                    ((SoundManager) Registry.get(SoundManager.class)).play("menu");
+                    Registry.get(SoundManager.class).play("menu");
                     break;
                 default:
                     break;

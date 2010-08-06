@@ -1,7 +1,7 @@
 /*
  * GNU General Public License v2
  *
- * @version $Id: Node.java 299 2009-07-23 13:21:55Z ru.energy $
+ * @version $Id$
  */
 package jtanks.game.scene;
 
@@ -71,7 +71,7 @@ public abstract class Node {
      * @param controller new controller
      */
     public void addController(Controller controller) {
-        if (controllers.contains(controller) == false) {
+        if (!controllers.contains(controller)) {
             controller.register(this);
             controllers.add(controller);
         }
@@ -102,7 +102,7 @@ public abstract class Node {
         this.model = model;
     }
 
-    public List<Node> hasCollision(Node node) {
+    public List<Node> hasCollision(final Node node) {
         if (equals(node)) {
             return null;
         }
@@ -110,7 +110,7 @@ public abstract class Node {
         List<Node> nodes = new ArrayList<Node>();
 
         if (model != null && node.getModel() != null) {
-            Model m1 = null, m2 = null;
+            Model m1, m2;
             if (this instanceof Unit) {
                 m1 = ((Unit) this).getModel(((Unit) this).getMotion().getDirection());
             } else {
@@ -225,7 +225,7 @@ public abstract class Node {
     }
 
     private void updateControllers() {
-        if (controllers.isEmpty() == false) {
+        if (!controllers.isEmpty()) {
             for (Controller controller : controllers) {
                 long time = 0;
                 if (controller.getLastCallTime() != 0) {
@@ -241,7 +241,7 @@ public abstract class Node {
         lock.lock();
         try {
             if (children != null) {
-                if (children.isEmpty() == false) {
+                if (!children.isEmpty()) {
                     for (Node child : children) {
                         child.update();
                     }
@@ -269,7 +269,7 @@ public abstract class Node {
     }
 
     public void renderModel(Graphics2D g) {
-        if (model != null && ((Boolean) Registry.get("debug")).equals(Boolean.TRUE)) {
+        if (model != null && Registry.get("debug").equals(Boolean.TRUE)) {
             if (highlight) {
                 g.setColor(Color.GREEN);
                 highlight = false;
@@ -279,8 +279,8 @@ public abstract class Node {
 
             int size = (Integer) Cache.GLOBAL.get("areaSize");
 
-            int x = 0, y = 0, width = 0, height = 0;
-            Model _model = null;
+            int x, y, width, height;
+            Model _model;
             if (this instanceof Unit) {
                 Unit unit = (Unit) this;
                 _model = unit.getModel(unit.getMotion().getDirection());
@@ -351,7 +351,7 @@ public abstract class Node {
         Integer time = (Integer) Cache.GLOBAL.get(key);
 
         try {
-            return time.intValue();
+            return time;
         } catch (NullPointerException e) {
             return 100;
         }

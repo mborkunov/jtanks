@@ -26,6 +26,7 @@ import jtanks.game.scene.landscapes.Water;
 import jtanks.game.scene.units.Base;
 import jtanks.game.scene.units.Enemy;
 import jtanks.game.scene.units.Player;
+import jtanks.game.scene.units.Unit;
 import jtanks.game.screens.Preloadable;
 import jtanks.game.util.Cache;
 import jtanks.system.Registry;
@@ -76,9 +77,7 @@ public final class BattleField extends Node implements Preloadable {
 
     @Override
     public void update() {
-        if (Math.random() > .99) {
-            spawnEnemy();
-        }
+        spawnEnemy();
         super.update();
     }
 
@@ -117,7 +116,7 @@ public final class BattleField extends Node implements Preloadable {
 
                 int defaultImageSize = new Ground(0, 0).getImage().getWidth();
 
-                return (float) (areaSize / (float) defaultImageSize);
+                return areaSize / (float) defaultImageSize;
             }
         });
     }
@@ -145,12 +144,8 @@ public final class BattleField extends Node implements Preloadable {
     }
 
     private void spawnEnemy() {
-        if (enemiesRemaining == 0) {
-            return;
-        }
-
-        if (enemiesSpawned > 3) {
-            return;
+        if (!canSpawnEnemy()) {
+             return;
         }
 
         ArrayList<Position> busy = new ArrayList<Position>();
@@ -159,39 +154,27 @@ public final class BattleField extends Node implements Preloadable {
         Position position = getRandomSpawnPosition(busy);
         enemy.getModel().setPosition(position.clone());
 
-        /*boolean done = false;
-
-        do {
-            Position position = getRandomSpawnPosition(busy);
-            try {
-                enemy.getModel().setPosition(position.clone());
-            } catch (NullPointerException e) {
-                System.out.println("false");
+        List<Node> collisions = enemy.hasCollision(this);
+        for (Node collision : collisions) {
+            if (collision instanceof Unit) {
                 return;
             }
 
-
-            boolean collision = false;
-            if (hasCollision(enemy).size() > 0) {
-                busy.add(position);
-                System.out.println("busy");
-                collision = true;
-                break;
-            }
-            if (collision == false) {
-                done = true;
-            }
-        } while (done == false || busy.size() < map.getEnemySpawnPositions().length);
-
-        if (busy.size() == map.getEnemySpawnPositions().length) {
-            return;
         }
-         */
-
         mainLayer.addChild(enemy);
         enemiesSpawned++;
         enemiesRemaining--;
+    }
 
+    private boolean canSpawnEnemy() {
+        if (Math.random() < .99) {
+            return false;
+        }
+        if (enemiesRemaining == 0) {
+            return false;
+        }
+
+        return enemiesSpawned <= 3;
     }
 
     private Position getRandomSpawnPosition(List<Position> exclude) {
@@ -201,29 +184,7 @@ public final class BattleField extends Node implements Preloadable {
 
         Random random = new Random();
         List<Position> positions = Arrays.asList(map.getEnemySpawnPositions());
-
-
-        Position position;
-
-        position = positions.get(random.nextInt(positions.size()));
-        return position;
-
-        /*boolean done = false;
-        do {
-            if (positions.isEmpty()) {
-                return null;
-            }
-
-            position = positions.get(random.nextInt(positions.size()));
-
-            if (exclude.contains(position)) {
-                positions.remove(position);
-            } else {
-                done = true;
-            }
-        } while (done == false);
-
-        return position;*/
+        return positions.get(random.nextInt(positions.size()));
     }
 
     private void spawnPlayer() {
@@ -231,6 +192,6 @@ public final class BattleField extends Node implements Preloadable {
     }
 
     public boolean hasEnemies() {
-        return enemiesSpawned + enemiesRemaining > 0 ? true : false;
+        return enemiesSpawned + enemiesRemaining > 0;
     }
 }

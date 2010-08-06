@@ -38,7 +38,7 @@ public class Statistics extends Screen {
 
         int lineHeight = (int) ((getHeight() / 20) * 1.1f);
 
-        Map<String,Object> map = ((StatisticsData) Registry.get("statistics")).toMap();
+        Map<String,Object> map = Registry.get(StatisticsData.class).toMap();
 
         int line = 0;
         for (Map.Entry<String,Object> entry : map.entrySet()) {
@@ -54,7 +54,7 @@ public class Statistics extends Screen {
             super.keyPressed(e);
             if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
                 JTanks.getInstance().getGameState().setScreen(getCaller());
-                ((SoundManager) Registry.get(SoundManager.class)).play("menu");
+                Registry.get(SoundManager.class).play("menu");
             }
         }
     }

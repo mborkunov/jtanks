@@ -1,7 +1,7 @@
 /*
  * GNU General Public License v2
  *
- * @version $Id: Battle.java 296 2009-07-23 13:13:00Z ru.energy $
+ * @version $Id$
  */
 package jtanks.game.screens;
 
@@ -139,7 +139,7 @@ public class Battle extends Screen implements Preloadable {
                             }
                             break;
                         case GAMEOVER:
-                            StatisticsData stats = ((StatisticsData) Registry.get("statistics"));
+                            StatisticsData stats = Registry.get(StatisticsData.class);
                             stats.setDeaths(stats.getDeaths() + 1);
                             screen = new GameOver();
                             break;
@@ -153,7 +153,7 @@ public class Battle extends Screen implements Preloadable {
 
     @Override
     public void terminate() {
-        jtanks.game.gameplay.StatisticsData stats = (jtanks.game.gameplay.StatisticsData) Registry.get("statistics");
+        StatisticsData stats = Registry.get(StatisticsData.class);
         long time = (System.currentTimeMillis() - startTime);
         long pauseTime = 0;
         if (Registry.get("pauseTime") != null) {

@@ -15,6 +15,7 @@ public abstract class Registry {
      * Objects storage
      */
     private static HashMap<Object, Object> map = new HashMap<Object, Object>();
+    private static final Logger logger = Logger.getLogger(Registry.class.getName());
 
     /**
      * Store object in the registry
@@ -46,16 +47,16 @@ public abstract class Registry {
         Object result = map.get(key);
 
         if (result != null) {
-            if (result.getClass().equals(key) == false) {
+            if (!result.getClass().equals(key)) {
                 throw new RuntimeException();
             }
         } else {
             try {
                 result = key.newInstance();
             } catch (InstantiationException ex) {
-                Logger.getLogger(Registry.class.getName()).log(Level.SEVERE, null, ex);
+                logger.log(Level.SEVERE, null, ex);
             } catch (IllegalAccessException ex) {
-                Logger.getLogger(Registry.class.getName()).log(Level.SEVERE, null, ex);
+                logger.log(Level.SEVERE, null, ex);
             }
         }
         return (T) result;

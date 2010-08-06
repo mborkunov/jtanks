@@ -39,7 +39,7 @@ public class Enemy extends Tank {
      */
     /*@Override
     public void damage(Element element) {
-        StatisticsData stats = (StatisticsData) (Registry.get("statistics"));
+        StatisticsData stats = Registry.get(StatisticsData.class);
         stats.setTanks(stats.getTanks() + 1);
         super.damage(element);
         ((SoundManager) Registry.get(SoundManager.class)).play("enemy_destroyed");

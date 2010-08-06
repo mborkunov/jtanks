@@ -44,6 +44,7 @@ public strictfp class Maps extends Screen {
     private final ExecutorService service = Executors.newSingleThreadExecutor();
     private double previewImageAngle = 0;
     private long time;
+    private final static Logger logger = Logger.getLogger(Maps.class.getName());
 
     public Maps() {
         Manager mapManager = Manager.getInstance();
@@ -51,11 +52,11 @@ public strictfp class Maps extends Screen {
 
         boolean disabled = false;
         for (int i = 0; i < maps.size(); i++) {
-                if (!disabled && i > Registry.get(StatisticsData.class).getLastMap()) {
+            if (!disabled && i > Registry.get(StatisticsData.class).getLastMap()) {
                 disabled = true;
             }
             Map map = maps.get(i);
-            MenuItem<Map> item = new MenuItem<Map>(map.getName(), Loading.class, i == 0 ? true : false);
+            MenuItem<Map> item = new MenuItem<Map>(map.getName(), Loading.class, i == 0);
             item.set(map);
             item.setDisabled(disabled );
             menu.add(item);
@@ -105,7 +106,9 @@ public strictfp class Maps extends Screen {
                             images[index] = Manager.getInstance().getMaps().get(index).createPreviewImage(previewSize);
                         }
                     }));
-                } catch (RejectedExecutionException e) {}
+                } catch (RejectedExecutionException e) {
+                    logger.log(Level.WARNING, null, e);
+                }
             }
             preview = images[index];
         } finally {

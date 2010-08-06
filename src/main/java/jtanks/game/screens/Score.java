@@ -23,7 +23,7 @@ public class Score extends Screen {
     private Map nextMap;
 
     public Score() {
-        keyboardListener = new KeyboardListener(this);
+        keyboardListener = new KeyboardListener();
 
         Registry.get(TimerManager.class).createTimer(Score.class, new TimerTask() {
             @Override
@@ -41,7 +41,9 @@ public class Score extends Screen {
     public void draw(Graphics2D g) {
         if (map == null || nextMap == null) {
             map = (Map) data.get("map");
-            Registry.get(StatisticsData.class).setLastMap(map.getId());
+            if (Registry.get(StatisticsData.class).getLastMap() < map.getId()) {
+                Registry.get(StatisticsData.class).setLastMap(map.getId());
+            }
             nextMap = (Map) data.get("nextMap");
         }
 
@@ -65,10 +67,7 @@ public class Score extends Screen {
 
     class KeyboardListener extends SystemListener {
 
-        private Score screen;
-
-        KeyboardListener(Score screen) {
-            this.screen = screen;
+        KeyboardListener() {
         }
 
         @Override

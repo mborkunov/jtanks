@@ -1,7 +1,7 @@
 /*
  * GNU General Public License v2
  *
- * @version $Id: Interface.java 277 2009-07-17 16:38:55Z ru.energy $
+ * @version $Id$
  */
 package jtanks.game.scene.gameplay;
 
@@ -32,7 +32,7 @@ public class Interface extends Node implements Preloadable {
         int offset = 10;
 
         int battleFieldWidth = (int) (width * .8f - offset * 2 - borderSize * 2);
-        int battleFieldHeight = (int) (height - offset * 2 - borderSize * 2);
+        int battleFieldHeight = height - offset * 2 - borderSize * 2;
 
         int battleInfoWidth =  width - battleFieldWidth - offset * 3 - borderSize * 4;
         int battleInfoHeight = battleFieldHeight;

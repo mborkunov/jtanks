@@ -11,11 +11,9 @@ import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 import java.awt.geom.Rectangle2D;
 import java.util.List;
-import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Logger;
-import javax.imageio.ImageIO;
 import jtanks.JTanks;
 import jtanks.game.GameState;
 import jtanks.game.scene.units.util.Motion;
@@ -27,7 +25,6 @@ import jtanks.game.scene.gameplay.BattleField;
 import jtanks.game.scene.gameplay.Interface;
 import jtanks.game.scene.units.Tank;
 import jtanks.game.screens.helpers.DataTransfer;
-import jtanks.game.util.Cache;
 import jtanks.system.Registry;
 import jtanks.system.ResourceManager;
 import jtanks.system.SystemListener;
@@ -40,7 +37,7 @@ public class Battle extends Screen implements Preloadable {
     private boolean showQuitDialog = false;
 
     private enum Status {
-        COMPLETE, GAMEOVER, INCOMPLETE, PAUSED;
+        COMPLETE, GAMEOVER, INCOMPLETE, PAUSED
     }
 
     public Battle() {
@@ -86,7 +83,7 @@ public class Battle extends Screen implements Preloadable {
             int fontHeight = (int) rect.getHeight();
 
             g.setBackground(Color.WHITE);
-            g.clearRect(width / 2 - fontWidth / 2 - fontWidth / 4, height / 3 - 50 - fontHeight / 4, (int) (fontWidth * 1.5), (int) (fontHeight * 4));
+            g.clearRect(width / 2 - fontWidth / 2 - fontWidth / 4, height / 3 - 50 - fontHeight / 4, (int) (fontWidth * 1.5), fontHeight * 4);
 
             g.drawString(quitString, width / 2 - fontWidth / 2, height / 3);
 
@@ -99,18 +96,18 @@ public class Battle extends Screen implements Preloadable {
     public void update() {
         super.update();
 
-        if (JTanks.getInstance().getGameState().getScreen().equals(this) == false) {
+        if (!JTanks.getInstance().getGameState().getScreen().equals(this)) {
             return;
         }
 
-        if (status.equals(Status.GAMEOVER) == false) {
-            if (BattleField.instance.isPlayerAlive() == false || BattleField.instance.isBaseAlive() == false) {
+        if (!status.equals(Status.GAMEOVER)) {
+            if (!BattleField.instance.isPlayerAlive() || !BattleField.instance.isBaseAlive()) {
                 status = Status.GAMEOVER;
             }
         }
 
-        if (status.equals(Status.COMPLETE) == false && status.equals(Status.GAMEOVER) == false) {
-            if (BattleField.instance.hasEnemies() == false) {
+        if (!status.equals(Status.COMPLETE) && !status.equals(Status.GAMEOVER)) {
+            if (!BattleField.instance.hasEnemies()) {
                 status = Status.COMPLETE;
             }
         }
@@ -175,7 +172,7 @@ public class Battle extends Screen implements Preloadable {
 
             switch (e.getKeyCode()) {
                 case KeyEvent.VK_ESCAPE:
-                    showQuitDialog = status.equals(Battle.Status.PAUSED) ? false : true;
+                    showQuitDialog = !status.equals(Status.PAUSED);
 
                     if (status.equals(Battle.Status.PAUSED)) {
                         status = Status.INCOMPLETE;
@@ -189,7 +186,7 @@ public class Battle extends Screen implements Preloadable {
                     break;
                 case KeyEvent.VK_P:
                 case KeyEvent.VK_PAUSE:
-                    if (showQuitDialog == false) {
+                    if (!showQuitDialog) {
                         if (status.equals(Battle.Status.PAUSED)) {
                             status = Status.INCOMPLETE;
                             JTanks.getInstance().getGameState().resume();
@@ -250,9 +247,9 @@ public class Battle extends Screen implements Preloadable {
                         tank.lock.lock();
                         try {
                             tank.shoot();
+                            return;
                         } finally {
                             tank.lock.unlock();
-                            return;
                         }
                 }
                 if (speed != 0) {

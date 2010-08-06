@@ -1,15 +1,18 @@
 /*
  * GNU General Public License v2
  * 
- * @version $Id: MenuView.java 166 2009-05-14 20:04:22Z ru.energy $
+ * @version $Id$
  */
 package jtanks.game.screens.helpers;
 
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics2D;
+import java.awt.font.TextAttribute;
 import java.awt.geom.AffineTransform;
 import java.awt.image.VolatileImage;
+import java.util.Map;
+
 import jtanks.game.screens.Screen;
 import jtanks.system.ResourceManager;
 
@@ -21,6 +24,7 @@ public class MenuView {
     private VolatileImage cursor;
 
     private final Color ACTIVE_ITEM_COLOR = Color.WHITE;
+    private final Color DISABLED_ITEM_COLOR = Color.DARK_GRAY;
     private final Color INACTIVE_ITEM_COLOR = Color.LIGHT_GRAY;
 
     public MenuView(jtanks.game.screens.helpers.Menu menu) {
@@ -50,7 +54,24 @@ public class MenuView {
         int i = 0;
 
         for (MenuItem item : menu.toArray()) {
-            g.setColor(item.isSelected() ? ACTIVE_ITEM_COLOR : INACTIVE_ITEM_COLOR);
+            if (item.isDisabled()) {
+                Map attributes = ((Font) screen.cache.get("menuFont")).getAttributes();
+                attributes.put(TextAttribute.STRIKETHROUGH, TextAttribute.STRIKETHROUGH_ON);
+                final Font newFont = new Font(attributes);
+
+                Screen.lock.lock();
+                try {
+                    if (screen.cache.get("menuDisabledFont") == null) {
+                        screen.cache.put("menuDisabledFont", newFont);
+                    }
+                    g.setFont(newFont);
+                } finally {
+                    Screen.lock.unlock();
+                }
+            } else {
+                g.setFont((Font) screen.cache.get("menuFont"));
+            }
+            g.setColor(item.isDisabled() ? DISABLED_ITEM_COLOR : item.isSelected() ? ACTIVE_ITEM_COLOR : INACTIVE_ITEM_COLOR);
             g.drawString(item.toString(), offsetLeft, offsetTop + i++ * lineHeight);
         }
 

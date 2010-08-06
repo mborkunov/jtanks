@@ -1,7 +1,7 @@
 /*
  * GNU General Public License v2
  *
- * @version $Id: Label.java 271 2009-07-17 16:31:12Z ru.energy $
+ * @version $Id$
  */
 package jtanks.game.screens.controls;
 

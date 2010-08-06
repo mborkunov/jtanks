@@ -1,7 +1,7 @@
 /*
  * GNU General Public License v2
  * 
- * @version $Id: Manager.java 152 2009-05-13 03:34:04Z ru.energy $
+ * @version $Id$
  */
 package jtanks.game.map;
 
@@ -11,7 +11,6 @@ import java.util.logging.Logger;
 
 public class Manager {
 
-    private final String DEFAULT_MAP_FOLDER = "/resources/maps/";
     private final String EXTENSION = "jtm";
     private List<Map> maps = new ArrayList<Map>();
     private String mapFolder;
@@ -19,7 +18,7 @@ public class Manager {
     private Logger logger = Logger.getLogger(Manager.class.getName());
 
     private Manager() {
-        this.mapFolder = DEFAULT_MAP_FOLDER;
+        this.mapFolder = "/resources/maps/";
         init();
     }
 
@@ -46,7 +45,9 @@ public class Manager {
     private void init() {
         int i = 1;
         while (getClass().getResourceAsStream(mapFolder + i + '.' + EXTENSION) != null) {
-            maps.add(new Map(mapFolder + i + '.' + EXTENSION));
+            Map map = new Map(mapFolder + i + '.' + EXTENSION);
+            map.setId(i);
+            maps.add(map);
             i++;
         }
         logger.info("Found " + (i - 1) + " map(s)");

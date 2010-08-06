@@ -1,7 +1,7 @@
 /*
  * GNU General Public License v2
  *
- * @version $Id: ResourceManagerTest.java 261 2009-07-05 04:13:37Z ru.energy $
+ * @version $Id$
  */
 package jtanks.system;
 
@@ -55,8 +55,6 @@ public class ResourceManagerTest {
      */
     @Test
     public void testGetVolatileImage() {
-        String name = "";
-        VolatileImage expResult = null;
         //VolatileImage result = ResourceManager.getVolatileImage(name);
         //assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
@@ -68,8 +66,6 @@ public class ResourceManagerTest {
      */
     @Test
     public void testGetImage_String() {
-        String name = "";
-        Image expResult = null;
         //Image result = ResourceManager.getImage(name);
         //assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
@@ -81,8 +77,6 @@ public class ResourceManagerTest {
      */
     @Test
     public void testGetImage_URL() {
-        URL resource = null;
-        Image expResult = null;
         //Image result = ResourceManager.getImage(resource);
         //assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
@@ -170,8 +164,6 @@ public class ResourceManagerTest {
      */
     @Test
     public void testGetImages() {
-        List<URL> resources = null;
-        List<Image> expResult = null;
         //List<Image> result = ResourceManager.getImages(resources);
         //assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.

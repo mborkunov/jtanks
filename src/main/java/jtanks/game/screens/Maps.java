@@ -1,7 +1,7 @@
 /*
  * GNU General Public License v2
  *
- * @version $Id: Maps.java 261 2009-07-05 04:13:37Z ru.energy $
+ * @version $Id$
  */
 package jtanks.game.screens;
 
@@ -23,6 +23,7 @@ import java.util.concurrent.RejectedExecutionException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import jtanks.JTanks;
+import jtanks.game.gameplay.StatisticsData;
 import jtanks.game.map.Manager;
 import jtanks.game.map.Map;
 import jtanks.game.screens.helpers.Menu;
@@ -48,10 +49,15 @@ public strictfp class Maps extends Screen {
         Manager mapManager = Manager.getInstance();
         List<Map> maps = mapManager.getMaps();
 
+        boolean disabled = false;
         for (int i = 0; i < maps.size(); i++) {
+                if (!disabled && i > ((StatisticsData) Registry.get("statistics")).getLastMap()) {
+                disabled = true;
+            }
             Map map = maps.get(i);
             MenuItem<Map> item = new MenuItem<Map>(map.getName(), Loading.class, i == 0 ? true : false);
             item.set(map);
+            item.setDisabled(disabled );
             menu.add(item);
         }
         keyboardListener = new Listener();

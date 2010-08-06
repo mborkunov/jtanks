@@ -1,7 +1,7 @@
 /*
  * GNU General Public License v2
  *
- * @version $Id: Score.java 261 2009-07-05 04:13:37Z ru.energy $
+ * @version $Id$
  */
 package jtanks.game.screens;
 
@@ -9,9 +9,9 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
-import java.util.Timer;
 import java.util.TimerTask;
 import jtanks.JTanks;
+import jtanks.game.gameplay.StatisticsData;
 import jtanks.game.map.Map;
 import jtanks.system.Registry;
 import jtanks.system.SystemListener;
@@ -41,6 +41,7 @@ public class Score extends Screen {
     public void draw(Graphics2D g) {
         if (map == null || nextMap == null) {
             map = (Map) data.get("map");
+            ((StatisticsData) Registry.get("statistics")).setLastMap(map.getId());
             nextMap = (Map) data.get("nextMap");
         }
 

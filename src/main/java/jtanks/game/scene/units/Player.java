@@ -1,7 +1,7 @@
 /*
  * GNU General Public License v2
  *
- * @version $Id: Player.java 298 2009-07-23 13:20:43Z ru.energy $
+ * @version $Id$
  */
 package jtanks.game.scene.units;
 
@@ -33,7 +33,7 @@ public class Player extends Tank {
         if ((result = super.shoot())) {
             StatisticsData stats = ((StatisticsData) Registry.get("statistics"));
             stats.setBullets(stats.getBullets() + 1);
-            ((SoundManager) Registry.get(SoundManager.class)).play("shoot");
+            Registry.get(SoundManager.class).play("shoot");
         }
         return result;
     }

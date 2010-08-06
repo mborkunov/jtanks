@@ -1,7 +1,7 @@
 /*
  * GNU General Public License v2
  *
- * @version $Id: ConfigTest.java 291 2009-07-22 12:37:52Z ru.energy $
+ * @version $Id$
  */
 package jtanks.system;
 

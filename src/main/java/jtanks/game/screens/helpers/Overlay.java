@@ -1,7 +1,7 @@
 /*
  * GNU General Public License v2
  *
- * @version $Id: Overlay.java 160 2009-05-13 04:11:30Z ru.energy $
+ * @version $Id$
  */
 package jtanks.game.screens.helpers;
 

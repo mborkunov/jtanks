@@ -1,7 +1,7 @@
 /*
  * GNU General Public License v2
  * 
- * @version $Id: Map.java 293 2009-07-23 12:53:09Z ru.energy $
+ * @version $Id$
  */
 package jtanks.game.map;
 
@@ -39,6 +39,7 @@ public class Map {
     private Type[][] map;
     private String path;
     private String name;
+    private int id;
     private String about;
     private int    width;
     private int    height;
@@ -105,6 +106,14 @@ public class Map {
                  }
              }
         }
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     /**

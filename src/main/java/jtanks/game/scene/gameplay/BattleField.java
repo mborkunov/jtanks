@@ -1,7 +1,7 @@
 /*
  * GNU General Public License v2
  *
- * @version $Id: BattleField.java 308 2009-07-23 13:43:01Z ru.energy $
+ * @version $Id$
  */
 package jtanks.game.scene.gameplay;
 
@@ -76,7 +76,7 @@ public final class BattleField extends Node implements Preloadable {
 
     @Override
     public void update() {
-        if (System.currentTimeMillis() % 150 == 0) {
+        if (Math.random() > .99) {
             spawnEnemy();
         }
         super.update();

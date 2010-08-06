@@ -1,7 +1,7 @@
 /*
  * GNU General Public License v2
  * 
- * @version $Id: Config.java 290 2009-07-18 15:19:03Z ru.energy $
+ * @version $Id$
  */
 package jtanks.system;
 
@@ -27,22 +27,24 @@ public class Config implements Iterable {
 
     private Logger logger = Logger.getLogger(Config.class.getName());
     private HashMap<String,String> defaults = new HashMap<String,String>();
-    static private Config instance;
     public File applicationDirectory;
     private File configFile;
     private Properties properties = new Properties();
+    private static final String JTANKS_DIR = ".jtanks";
+    private static Config instance;
 
     private Config() {
-        defaults.put("maxfps", "50");
-        defaults.put("fullscreen", "false");
-        defaults.put("sound", "true");
-        defaults.put("window.width", "800");
-        defaults.put("window.height", "600");
-        defaults.put("font.family", "Georgia");
-        defaults.put("font.style", "bold");
+        defaults.put("maxfps", String.valueOf(50));
+        defaults.put("fullscreen", Boolean.FALSE.toString());
+        defaults.put("sound", Boolean.TRUE.toString());
+        defaults.put("window.width", String.valueOf(800));
+        defaults.put("window.height", String.valueOf(600));
+        defaults.put("font.family", String.valueOf("Georgia"));
+        defaults.put("font.style", String.valueOf("bold"));
 
-        StringBuffer dirName = new StringBuffer(System.getProperty("user.home"))
-                             .append(File.separator).append(".jtanks");
+        String userHome = System.getProperty("user.home");
+
+        StringBuffer dirName = new StringBuffer(userHome).append(File.separator).append(JTANKS_DIR);
 
         applicationDirectory = new File(dirName.toString());
         configFile = new File(applicationDirectory, "config");
@@ -59,12 +61,12 @@ public class Config implements Iterable {
                 properties.loadFromXML(is);
             } catch (IOException ex) {
                 exception = true;
-                logger.log(Level.SEVERE, "An error has occured while reading config file", ex);
+                logger.log(Level.SEVERE, "An error has occurred while reading config file", ex);
             } finally {
                 try {
                     is.close();
                 } catch (IOException ex) {
-                    logger.log(Level.SEVERE, "An error has occured while reading config file", ex);
+                    logger.log(Level.SEVERE, "An error has occurred while reading config file", ex);
                 }
             }
             if (exception == false) {
@@ -131,14 +133,14 @@ public class Config implements Iterable {
                      new FileOutputStream(configFile));
             properties.storeToXML(os, null);
         } catch (FileNotFoundException ex) {
-            logger.log(Level.SEVERE, "An error has occured while saving config file", ex);
+            logger.log(Level.SEVERE, "An error has occurred while saving config file", ex);
         } catch (IOException ex) {
-            logger.log(Level.SEVERE, "An error has occured while saving config file", ex);
+            logger.log(Level.SEVERE, "An error has occurred while saving config file", ex);
         } finally {
             try {
                 os.close();
             } catch (IOException ex) {
-                logger.log(Level.SEVERE, "An error has occured while closing config file output stream", ex);
+                logger.log(Level.SEVERE, "An error has occurred while closing config file output stream", ex);
             }
         }
     }
@@ -167,7 +169,6 @@ public class Config implements Iterable {
     }
 
     public Iterator iterator() {
-
         return new Iterator() {
 
             private int position = 0;

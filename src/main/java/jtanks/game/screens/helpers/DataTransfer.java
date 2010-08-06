@@ -1,7 +1,7 @@
 /*
  * GNU General Public License v2
  * 
- * @version $Id: DataTransfer.java 144 2009-05-13 03:13:26Z ru.energy $
+ * @version $Id$
  */
 package jtanks.game.screens.helpers;
 

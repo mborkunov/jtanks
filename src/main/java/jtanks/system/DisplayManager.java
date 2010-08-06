@@ -1,7 +1,7 @@
 /*
  * GNU General Public License v2
  * 
- * @version $Id: DisplayManager.java 305 2009-07-23 13:39:40Z ru.energy $
+ * @version $Id$
  */
 package jtanks.system;
 

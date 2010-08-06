@@ -1,7 +1,7 @@
 /*
  * GNU General Public License v2
  * 
- * @version $Id: Options.java 271 2009-07-17 16:31:12Z ru.energy $
+ * @version $Id$
  */
 package jtanks.game.screens;
 
@@ -12,7 +12,6 @@ import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
-import java.util.Map;
 import jtanks.JTanks;
 import jtanks.game.screens.controls.Binding;
 import jtanks.game.screens.controls.Checkbox;

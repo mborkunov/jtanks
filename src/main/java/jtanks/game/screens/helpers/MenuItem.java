@@ -1,7 +1,7 @@
 /*
  * GNU General Public License v2
  *
- * @version $Id: MenuItem.java 261 2009-07-05 04:13:37Z ru.energy $
+ * @version $Id$
  */
 package jtanks.game.screens.helpers;
 
@@ -15,6 +15,7 @@ public class MenuItem<T> {
     private Class<Screen> screen;
     private boolean status;
     private boolean isActive;
+    private boolean disabled;
     private Screen screenInstance;
     private Screen caller;
     private T object;
@@ -77,4 +78,11 @@ public class MenuItem<T> {
         return this.name;
     }
 
+    public boolean isDisabled() {
+        return disabled;
+    }
+
+    public void setDisabled(boolean disabled) {
+        this.disabled = disabled;
+    }
 }

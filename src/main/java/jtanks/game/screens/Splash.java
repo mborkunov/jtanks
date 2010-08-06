@@ -1,7 +1,7 @@
 /*
  * GNU General Public License v2
  *
- * @version $Id: Splash.java 266 2009-07-16 09:36:33Z ru.energy $
+ * @version $Id$
  */
 package jtanks.game.screens;
 

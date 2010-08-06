@@ -1,7 +1,7 @@
 /*
  * GNU General Public License v2
  *
- * @version $Id: StatisticsData.java 268 2009-07-16 09:41:50Z ru.energy $
+ * @version $Id$
  */
 package jtanks.game.gameplay;
 
@@ -33,6 +33,7 @@ public class StatisticsData implements Serializable, Iterable {
     protected int bullets = 0;
     protected int tanks = 0;
     protected int deaths = 0;
+    protected int lastMap = 0;
 
     private StatisticsData() {
     }
@@ -165,6 +166,14 @@ public class StatisticsData implements Serializable, Iterable {
         this.deaths = deaths;
     }
 
+    public int getLastMap() {
+        return lastMap;
+    }
+
+    public void setLastMap(int lastMap) {
+        this.lastMap = lastMap;
+    }
+
     /**
      * Return current statistics data as map
      *
@@ -176,6 +185,7 @@ public class StatisticsData implements Serializable, Iterable {
         map.put("tanks", tanks);
         map.put("bullets", bullets);
         map.put("deaths", deaths);
+        map.put("lastMap", lastMap);
         return map;
     }
 

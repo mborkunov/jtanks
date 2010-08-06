@@ -1,7 +1,7 @@
 /*
  * GNU General Public License v2
  *
- * @version $Id: TimerManager.java 261 2009-07-05 04:13:37Z ru.energy $
+ * @version $Id$
  */
 package jtanks.system;
 
@@ -19,7 +19,7 @@ public class TimerManager {
      * @param caller The created timer will be associated with this class
      * @param task TimerTask object
      * @param delay delay before executing
-     * @return
+     * @return Created timer
      */
     public boolean createTimer(Class caller, TimerTask task, long delay) {
         if (getTimer(caller) != null) {
@@ -36,7 +36,7 @@ public class TimerManager {
     /**
      * Return timer that associated with a given name
      * @param caller 
-     * @return
+     * @return timer for the given class             
      */
     public Timer getTimer(Class caller) {
         return timers.get(caller.getName());

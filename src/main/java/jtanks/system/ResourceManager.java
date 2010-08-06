@@ -1,7 +1,7 @@
 /*
  * GNU General Public License v2
  *
- * @version $Id: ResourceManager.java 304 2009-07-23 13:39:01Z ru.energy $
+ * @version $Id$
  */
 package jtanks.system;
 

@@ -1,15 +1,19 @@
 /*
  * GNU General Public License v2
  *
- * @version $Id: Bullet.java 301 2009-07-23 13:29:23Z ru.energy $
+ * @version $Id$
  */
 package jtanks.game.scene.units;
 
-import java.awt.Graphics2D;
+import java.awt.*;
+
+import jtanks.game.gameplay.StatisticsData;
 import jtanks.game.scene.units.util.Motion;
 import jtanks.game.geometry.Position;
 import jtanks.game.geometry.Rectangle;
 import jtanks.game.scene.Node;
+import jtanks.system.Registry;
+import jtanks.system.SoundManager;
 
 public class Bullet extends Unit {
 
@@ -38,14 +42,16 @@ public class Bullet extends Unit {
 
     @Override
     public void affect(Unit unit) {
-
         if (unit.getClass().equals(getClass())) {
             this.removeNow();
             unit.remove();
+            ((SoundManager) Registry.get(SoundManager.class)).play("bullets_impact");
         } else if (getOwner().getClass().equals(Player.class) && unit.getClass().equals(Enemy.class)) {
             unit.lock();
             unit.remove();
             removeNow();
+            StatisticsData stats = ((StatisticsData) Registry.get("statistics"));
+            stats.setTanks(stats.getTanks() + 1);
         } else if (getOwner().getClass().equals(Enemy.class) && unit.getClass().equals(Player.class)) {
             unit.lock();
             unit.remove();

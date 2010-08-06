@@ -1,7 +1,7 @@
 /*
  * GNU General Public License v2
  *
- * @version $Id: Quote.java 140 2009-05-13 02:29:05Z ru.energy $
+ * @version $Id$
  */
 package jtanks.system;
 

@@ -1,7 +1,7 @@
 /*
  * GNU General Public License v2
  *
- * @version $Id: Enemy.java 301 2009-07-23 13:29:23Z ru.energy $
+ * @version $Id$
  */
 package jtanks.game.scene.units;
 
@@ -33,7 +33,7 @@ public class Enemy extends Tank {
 
     /**
      * Apply damage to enemy tank. Also update statistics
-     * @todo Tank can be destroed or not. Update statistics only in first case.
+     * @todo Tank can be destroyed or not. Update statistics only in first case.
      *
      * @param element
      */

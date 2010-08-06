@@ -1,7 +1,7 @@
 /*
  * GNU General Public License v2
  *
- * @version $Id: SoundManager.java 261 2009-07-05 04:13:37Z ru.energy $
+ * @version $Id$
  */
 package jtanks.system;
 
@@ -145,7 +145,7 @@ class Sound {
                 try {
                     audioInputStream = AudioSystem.getAudioInputStream(stream);
                 } catch (Exception e) {
-                    logger.log(Level.SEVERE, "Exception while getting audio stream", e);
+                    logger.log(Level.SEVERE, "An error has been occurred while getting audio stream", e);
                     return;
                 }
 

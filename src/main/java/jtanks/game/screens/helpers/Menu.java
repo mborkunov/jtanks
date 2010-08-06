@@ -1,11 +1,13 @@
 /*
  * GNU General Public License v2
  *
- * @version $Id: Menu.java 261 2009-07-05 04:13:37Z ru.energy $
+ * @version $Id$
  */
 package jtanks.game.screens.helpers;
 
 import java.util.ArrayList;
+import java.util.List;
+
 import jtanks.game.screens.Screen;
 
 public class Menu<T> {
@@ -39,15 +41,77 @@ public class Menu<T> {
         return null;
     }
 
+    public List<MenuItem> getNextItems(MenuItem item) {
+        ArrayList<MenuItem> result = new ArrayList<MenuItem>();
+        boolean found = false;
+        for (int i = 0; i < menu.size(); i++) {
+            MenuItem it = menu.get(i);
+            if (it == item) {
+                found = true;
+                continue;
+            }
+            if (found) {
+                result.add(it);
+            }
+        }
+        return result;
+    }
+
+    private List<MenuItem> getPreviousItems(MenuItem<T> item) {
+        ArrayList<MenuItem> result = new ArrayList<MenuItem>();
+        boolean found = true;
+        for (int i = menu.size() - 1; i >= 0; i--) {
+            MenuItem it = menu.get(i);
+            if (it == item) {
+                found = true;
+                continue;
+            }
+            if (found) {
+                result.add(it);
+            }
+        }
+        return result;
+    }
+
+    public boolean hasNext() {
+        List<MenuItem> nextItems = getNextItems(getSelected());
+        for (MenuItem nextItem : nextItems) {
+            if (!nextItem.isDisabled()) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean hasPrevious() {
+        List<MenuItem> prevItems = getPreviousItems(getSelected());
+        for (MenuItem prevItem : prevItems) {
+            if (!prevItem.isDisabled()) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     /**
      * Mark a next of a selected menu item as selected
      */
     public void selectNext() {
+        if (!hasNext()) {
+            return;
+        }
         for (int i = 0; i < menu.size(); i++) {
             MenuItem item = menu.get(i);
             if (item.isSelected() && i < (menu.size() - 1)) {
                 item.select(false);
-                menu.get(i + 1).select(true);
+                while (true) {
+                    MenuItem it = menu.get(++i);
+                    if (it.isDisabled()) {
+                        continue;
+                    }
+                    it.select(true);
+                    break;
+                }
                 break;
             }
         }
@@ -57,11 +121,21 @@ public class Menu<T> {
      * Mark a previous of a selected menu item as selected
      */
     public void selectPrevious() {
+        if (!hasPrevious()) {
+            return;
+        }
         for (int i = 0; i < menu.size(); i++) {
             MenuItem item = menu.get(i);
             if (item.isSelected() && i > 0) {
                 item.select(false);
-                menu.get(i - 1).select(true);
+                while (true) {
+                    MenuItem it = menu.get(--i);
+                    if (it.isDisabled()) {
+                        continue;
+                    }
+                    it.select(true);
+                    break;
+                }
                 break;
             }
         }
@@ -98,7 +172,7 @@ public class Menu<T> {
      */
     public void select(MenuItem item) {
         for (MenuItem menuItem : this.toArray()) {
-            menuItem.select(menuItem.equals(item) ? true : false);
+            menuItem.select(menuItem.equals(item));
         }
     }
 
@@ -108,7 +182,7 @@ public class Menu<T> {
      */
     public void select(int index) {
         for (int i = 0; i < menu.size(); i++) {
-            menu.get(i).select(i == index ? true : false);
+            menu.get(i).select(i == index);
         }
     }
 

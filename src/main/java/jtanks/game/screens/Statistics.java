@@ -1,7 +1,7 @@
 /*
  * GNU General Public License v2
  *
- * @version $Id: Statistics.java 265 2009-07-16 09:36:11Z ru.energy $
+ * @version $Id$
  */
 package jtanks.game.screens;
 

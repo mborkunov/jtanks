@@ -1,7 +1,7 @@
 /*
  * GNU General Public License v2
  *
- * @version $Id: Start.java 264 2009-07-16 09:35:04Z ru.energy $
+ * @version $Id$
  */
 package jtanks.game.screens;
 
@@ -25,7 +25,9 @@ public class Start extends Screen {
     public Start() {
         menu.add(new MenuItem("Start", Maps.class, true));
         menu.add(new MenuItem("Options", Options.class));
-        menu.add(new MenuItem("Statistics", Statistics.class));
+        MenuItem menuItem = new MenuItem("Statistics", Statistics.class);
+        menuItem.setDisabled(true);
+        menu.add(menuItem);
         menu.add(new MenuItem("Quit", Quit.class));
         menu.setCaller(this);
 

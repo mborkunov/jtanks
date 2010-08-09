@@ -65,7 +65,7 @@ public class Map {
         spawns[2] = new Position(0, y);
 
         playerPosition = getBasePosition().clone();
-        playerPosition.setX(playerPosition.getX() - 1);
+        playerPosition.setX(playerPosition.getX() - 2);
     }
 
     /**

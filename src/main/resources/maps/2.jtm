@@ -1,31 +1,20 @@
 [NAME]
-Water world
+The second map
 [ABOUT]
-good map
+Description
 [WIDTH]
-13
+15
 [HEIGHT]
-13
+11
 [LAND]
- ffff ffff ffff ffff ffff ffff
- cccc cccc cccc cccc cccc cccc
-                              
-w w w w w w w w w w w w w w w 
-                              
- w w w w w w w w w w w w w w w
-                              
-w w w w w w w w w w w w w w w 
-                              
- w w w w w w w w w w w w w w w
-                              
-w w w w w w w w w w w w w w w 
-                              
- w w w w w w w w w w w w w w w
-                              
-w w w w w w w w w w w w w w w 
-                              
- w w w w w w w w w w w w w w w
-                              
-w w w w w w w w w w w w w w w 
-                              
- w w w w w w w w w w w w w w w
+               
+bccc b   b cccb
+bbfffb   bfffbb
+ w fff f fff w 
+wwwfbf f fbfwww
+f  fbfbbbfbf  f
+fb www   www bf
+fb ccc   ccc bf
+fb ffff ffff bf
+fbbfffbbbfffbbf
+  bbb b b bbb  

@@ -1,4 +1,4 @@
-﻿Brics;b;225;88;30;
+﻿Bricks;b;225;88;30;
 Forest;f;0;128;0;
 Water;w;95;163;214;
 Concrete;c;200;200;200;

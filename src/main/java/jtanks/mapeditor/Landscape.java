@@ -19,6 +19,9 @@ import javax.swing.border.EtchedBorder;
 
 import jtanks.mapeditor.utils.RCSVStorage;
 
+/**
+ * @author Voroshin Alexey
+ */
 public class Landscape {
 
     private static final Logger           LOGGER     = Logger.getLogger(Landscape.class.getName());

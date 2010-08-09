@@ -14,13 +14,13 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /*
+ * @author Voroshin Alexey
  * хранилище в формате csv
  * хранит в map
  * ключи - string (первые элементы строк) 
  * значения - set of string
  * только для чтения
  */
-
 public class RCSVStorage {
 
     private static final Logger             LOGGER = Logger.getLogger(RCSVStorage.class.getName());

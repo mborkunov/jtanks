@@ -13,6 +13,9 @@ import javax.swing.Box;
 import javax.swing.JPanel;
 import javax.swing.UIManager;
 
+/**
+ * @author Voroshin Alexey
+ */
 public class GuiManager {
 
     public static int STRAT_LENGTH = 5;

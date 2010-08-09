@@ -23,6 +23,9 @@ import jtanks.mapeditor.Application;
 import jtanks.mapeditor.Landscape;
 import jtanks.mapeditor.utils.WindowStorage;
 
+/**
+ * @author Voroshin Alexey
+ */
 public class MainFrame extends JFrame {
 
     private static final long           serialVersionUID = 1L;

@@ -6,6 +6,9 @@ import java.io.FileReader;
 import java.io.PrintStream;
 import java.util.Arrays;
 
+/**
+ * @author Voroshin Alexey
+ */
 public class JTanksMap {
 
     private enum MapToken {

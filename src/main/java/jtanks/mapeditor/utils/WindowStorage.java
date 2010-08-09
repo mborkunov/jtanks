@@ -12,6 +12,9 @@ import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ * @author Voroshin Alexey
+ */
 public class WindowStorage {
 
     private static final Logger LOGGER     = Logger.getLogger(WindowStorage.class.getName());

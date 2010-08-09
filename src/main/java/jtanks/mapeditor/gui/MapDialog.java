@@ -21,6 +21,9 @@ import javax.swing.border.EmptyBorder;
 import jtanks.mapeditor.JTanksMap;
 import jtanks.mapeditor.Landscape;
 
+/**
+ * @author Voroshin Alexey
+ */
 public class MapDialog extends JDialog {
 
     private static final long           serialVersionUID  = 1L;

@@ -3,6 +3,9 @@ package jtanks.mapeditor;
 import jtanks.mapeditor.gui.GuiManager;
 import jtanks.mapeditor.gui.MainFrame;
 
+/**
+ * @author Voroshin Alexey
+ */
 public class Application {
 
     static {

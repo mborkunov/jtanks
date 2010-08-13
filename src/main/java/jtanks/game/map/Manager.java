@@ -5,6 +5,9 @@
  */
 package jtanks.game.map;
 
+import jtanks.system.Config;
+
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
@@ -44,12 +47,21 @@ public class Manager {
 
     private void init() {
         int i = 1;
-        while (getClass().getResourceAsStream(mapFolder + i + '.' + EXTENSION) != null) {
+        while (getClass().getResourceAsStream(mapFolder + i + "." + EXTENSION) != null) {
             Map map = new Map(mapFolder + i + '.' + EXTENSION);
             map.setId(i);
             maps.add(map);
             i++;
         }
         logger.info("Found " + (i - 1) + " map(s)");
+
+        /*String userMapsFolder = Config.getInstance().applicationDirectory.getAbsolutePath() + "/maps/";
+        int m = 1;
+        while (new File(userMapsFolder + String.valueOf(m) + "." + EXTENSION).exists()) {
+            Map map = new Map(userMapsFolder + String.valueOf(m++) + "." + EXTENSION);
+            map.setId(i++);
+            maps.add(map);
+        }
+        logger.info("Found " + (m - 1) + " user's map(s)");*/
     }
 }

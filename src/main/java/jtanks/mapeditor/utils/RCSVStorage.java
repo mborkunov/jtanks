@@ -1,9 +1,6 @@
 package jtanks.mapeditor.utils;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -44,7 +41,7 @@ public class RCSVStorage {
         BufferedReader reader = null;
 
         try {
-            reader = new BufferedReader(new FileReader(new File(fileName)));
+            reader = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream(fileName)));
 
             array.clear();
             String line;

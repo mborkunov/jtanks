@@ -10,6 +10,7 @@
     
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <main.class>jtanks.JTanks</main.class>
     </properties>
 
     <dependencies>
@@ -73,7 +74,7 @@
                   </execution>
                 </executions>
                 <configuration>
-                  <mainClass>jtanks.JTanks</mainClass>
+                  <mainClass>${main.class}</mainClass>
                     <systemProperties>
                     <systemProperty>
                       <key>sun.java2d.noddraw</key>
@@ -111,4 +112,13 @@
             </plugin>
         </plugins>
     </build>
+
+    <profiles>
+        <profile>
+            <id>editor</id>
+            <properties>
+                <main.class>jtanks.mapeditor.MapEditor</main.class>
+            </properties>
+        </profile>
+    </profiles>
 </project>

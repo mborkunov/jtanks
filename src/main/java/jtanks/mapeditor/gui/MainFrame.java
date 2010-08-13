@@ -19,7 +19,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
-import jtanks.mapeditor.Application;
+import jtanks.mapeditor.MapEditor;
 import jtanks.mapeditor.Landscape;
 import jtanks.mapeditor.utils.WindowStorage;
 
@@ -31,24 +31,25 @@ public class MainFrame extends JFrame {
     private static final long           serialVersionUID = 1L;
 
     private static final Logger         LOGGER           = Logger.getLogger(MainFrame.class.getName());
-    private static final ResourceBundle MESSAGES         = ResourceBundle.getBundle("jtanks.mapeditor.gui.messages");
+    private static ResourceBundle MESSAGES         = null;
 
     private JMenuBar                    mainMenuBar;
     private final WindowStorage         windowStorage    = new WindowStorage("win.txt", this);
-    private final Landscape             landscape        = new Landscape("landscape.txt");
+    private final Landscape             landscape        = new Landscape("/resources/landscape.txt");
     private final MapDialog             mapDialog        = new MapDialog(this, landscape);
     private JFileChooser                fileChooser;
     private final MainFrame             mainFrame        = this;
 
     public MainFrame() {
+        MESSAGES = ResourceBundle.getBundle("jtanks.mapeditor.gui.editor");
         addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(final WindowEvent arg0) {
-                Application.close();
+                MapEditor.close();
             }
         });
 
-        setTitle(Application.getName() + " v" + Application.getVersion());
+        setTitle(MapEditor.getName() + " v" + MapEditor.getVersion());
         setMinimumSize(new Dimension(400, 400));
 
         initComponents();
@@ -56,7 +57,7 @@ public class MainFrame extends JFrame {
 
     private JFileChooser getFileChooser() {
         if (fileChooser == null) {
-            fileChooser = new JFileChooser(Application.getMapsLocation());
+            fileChooser = new JFileChooser(MapEditor.getMapsLocation());
             fileChooser.addChoosableFileFilter(new FileNameExtensionFilter("*.jtm - файлы карт для JTanks", "jtm"));
         }
         return fileChooser;
@@ -71,7 +72,7 @@ public class MainFrame extends JFrame {
             fileMenuItemExit.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(final ActionEvent arg0) {
-                    Application.close();
+                    MapEditor.close();
                 }
             });
 

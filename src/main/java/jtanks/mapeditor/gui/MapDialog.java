@@ -27,7 +27,7 @@ import jtanks.mapeditor.Landscape;
 public class MapDialog extends JDialog {
 
     private static final long           serialVersionUID  = 1L;
-    private static final ResourceBundle MESSAGES          = ResourceBundle.getBundle("jtanks.mapeditor.gui.messages");
+    private static ResourceBundle MESSAGES          = null;//ResourceBundle.getBundle("jtanks.mapeditor.gui.messages");
 
     private static final int            TEXT_FIELD_HEIGHT = 30;
     private static final int            LABEL_HEIGHT      = 20;
@@ -55,6 +55,7 @@ public class MapDialog extends JDialog {
     private boolean                     createNew         = true;
 
     public MapDialog(final Window mainWindowA, final Landscape landscapeA) {
+        MESSAGES = ResourceBundle.getBundle("jtanks.mapeditor.gui.messages");
         setModal(true);
         setResizable(false);
         setTitle(MESSAGES.getString("MapDialog.Settings"));

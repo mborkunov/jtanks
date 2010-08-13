@@ -1,16 +1,15 @@
 package jtanks.mapeditor;
 
-import jtanks.mapeditor.gui.GuiManager;
 import jtanks.mapeditor.gui.MainFrame;
 
 /**
  * @author Voroshin Alexey
  */
-public class Application {
+public class MapEditor {
 
     static {
         // Locale.setDefault(Locale.ENGLISH);
-        GuiManager.setNimbusLookAndFeel();
+        // GuiManager.setNimbusLookAndFeel();
         // GuiManager.setSystemLookAndFeel();
     }
 
@@ -23,7 +22,7 @@ public class Application {
     private static final MainFrame MAIN_FRAME            = new MainFrame();
 
     public static void main(final String[] args) {
-        Application.start(args);
+        MapEditor.start(args);
     }
 
     public static String getVersion() {

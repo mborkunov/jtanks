@@ -12,12 +12,16 @@ import java.util.logging.Logger;
 import jtanks.JTanks;
 import jtanks.game.screens.helpers.Menu;
 import jtanks.game.screens.helpers.MenuItem;
+import jtanks.game.screens.helpers.MenuItemHandler;
 import jtanks.game.screens.helpers.MenuView;
+import jtanks.mapeditor.MapEditor;
 import jtanks.system.Registry;
 import jtanks.system.SoundManager;
 import jtanks.system.SystemListener;
 
 public class Start extends Screen {
+
+    private final Logger logger = Logger.getLogger(JTanks.class.getName());
 
     protected Menu menu = new Menu();
     private MenuView menuView;
@@ -28,6 +32,13 @@ public class Start extends Screen {
         MenuItem menuItem = new MenuItem("Statistics", Statistics.class);
         menuItem.setDisabled(false);
         menu.add(menuItem);
+        menu.add(new MenuItem("Editor", new MenuItemHandler() {
+            @Override
+            public void handle() {
+                logger.log(Level.INFO, "Starting map editor");
+                MapEditor.start(new String[0]);
+            }
+        }));
         menu.add(new MenuItem("Quit", Quit.class));
         menu.setCaller(this);
 
@@ -67,18 +78,22 @@ public class Start extends Screen {
                     Screen quitScreen = new Quit();
                     quitScreen.setCaller(screen);
                     JTanks.getInstance().getGameState().setScreen(quitScreen);
-                    ((SoundManager) Registry.get(SoundManager.class)).play("menu");
+                    Registry.get(SoundManager.class).play("menu");
                     break;
                 case KeyEvent.VK_ENTER:
                     MenuItem item = menu.getSelected();
-                    try {
-                        JTanks.getInstance().getGameState().setScreen(item.getScreen());
-                    } catch (InstantiationException ex) {
-                        Logger.getLogger(KeyboardListener.class.getName()).log(Level.SEVERE, null, ex);
-                    } catch (IllegalAccessException ex) {
-                        Logger.getLogger(KeyboardListener.class.getName()).log(Level.SEVERE, null, ex);
+                    if (item.getHandler() == null) {
+                        try {
+                            JTanks.getInstance().getGameState().setScreen(item.getScreen());
+                        } catch (InstantiationException ex) {
+                            Logger.getLogger(KeyboardListener.class.getName()).log(Level.SEVERE, null, ex);
+                        } catch (IllegalAccessException ex) {
+                            Logger.getLogger(KeyboardListener.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                    } else {
+                        item.getHandler().handle();
                     }
-                    ((SoundManager) Registry.get(SoundManager.class)).play("menu");
+                    Registry.get(SoundManager.class).play("menu");
                     break;
                 default:
                     break;

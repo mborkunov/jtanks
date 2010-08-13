@@ -18,7 +18,14 @@ public class MenuItem<T> {
     private boolean disabled;
     private Screen screenInstance;
     private Screen caller;
+    private MenuItemHandler handler;
     private T object;
+
+    public MenuItem(String string, MenuItemHandler handler) {
+        name = string;
+        status = false;
+        this.handler = handler;
+    }
 
     public MenuItem(String string, Class cls) {
         name = string;
@@ -84,5 +91,13 @@ public class MenuItem<T> {
 
     public void setDisabled(boolean disabled) {
         this.disabled = disabled;
+    }
+
+    public MenuItemHandler getHandler() {
+        return handler;
+    }
+
+    public void setHandler(MenuItemHandler handler) {
+        this.handler = handler;
     }
 }

@@ -12,6 +12,8 @@ import java.awt.Image;
 import java.awt.event.KeyEvent;
 import java.awt.geom.AffineTransform;
 import java.awt.geom.Rectangle2D;
+import java.util.logging.Logger;
+
 import jtanks.JTanks;
 import jtanks.system.Registry;
 import jtanks.system.ResourceManager;
@@ -94,12 +96,15 @@ public class Splash extends Screen {
 
     class KeyboardListener extends SystemListener {
 
+        private final Logger logger = Logger.getLogger(KeyboardListener.class.getName());
+
         @Override
         public void keyPressed(KeyEvent e) {
             super.keyPressed(e);
             switch (e.getKeyCode()) {
                 case KeyEvent.VK_ENTER:
                 case KeyEvent.VK_ESCAPE:
+                    logger.info("Skipping intro");
                     JTanks.getInstance().getGameState().setScreen(new Start());
                     break;
                 default:

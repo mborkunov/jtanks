@@ -1,13 +1,5 @@
-/*
- * GNU General Public License v2
- * 
- * @version $Id: Carrier.java 99 2008-06-23 00:40:15Z ru.energy $
- */
-
 package jtanks.game.gameplay;
 
-/**
- */
 public class Carrier {
 
     private static Carrier instance;

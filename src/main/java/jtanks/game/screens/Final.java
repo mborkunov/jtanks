@@ -1,8 +1,3 @@
-/*
- * GNU General Public License v2
- * 
- * @version $Id: Final.java 261 2009-07-05 04:13:37Z ru.energy $
- */
 package jtanks.game.screens;
 
 import java.awt.Color;

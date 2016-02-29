@@ -1,8 +1,3 @@
-/*
- * GNU General Public License v2
- *
- * @version $Id: AnimationController.java 309 2009-07-23 13:43:20Z ru.energy $
- */
 package jtanks.game.scene.controllers;
 
 import jtanks.game.scene.units.Unit;

@@ -1,8 +1,3 @@
-/*
- * GNU General Public License v2
- * 
- * @version $Id$
- */
 package jtanks.system;
 
 import java.awt.DisplayMode;
@@ -45,7 +40,7 @@ public class DisplayManager {
                 result = mode;
             }
 
-            if (result.equals(mode) == false && result.getBitDepth() < mode.getBitDepth()) {
+            if (!result.equals(mode) && result.getBitDepth() < mode.getBitDepth()) {
                 result = mode;
             }
         }
@@ -66,7 +61,7 @@ public class DisplayManager {
      * Restore system mode
      */
     public void restoreDisplay() {
-        if (gd.getDisplayMode().equals(system) == false) {
+        if (!gd.getDisplayMode().equals(system)) {
             setDisplayMode(system);
         }
     }
@@ -96,6 +91,6 @@ public class DisplayManager {
     }
 
     public boolean isFullScreen() {
-        return gd.getFullScreenWindow() == null ? false : true;
+        return gd.getFullScreenWindow() != null;
     }
 }

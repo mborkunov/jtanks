@@ -1,8 +1,3 @@
-/*
- * GNU General Public License v2
- *
- * @version $Id: BattleFieldInfo.java 308 2009-07-23 13:43:01Z ru.energy $
- */
 package jtanks.game.scene.gameplay;
 
 import java.awt.Color;

@@ -1,8 +1,3 @@
-/*
- * GNU General Public License v2
- * 
- * @version $Id: Motion.java 303 2009-07-23 13:38:31Z ru.energy $
- */
 package jtanks.game.scene.units.util;
 
 import java.util.Arrays;

@@ -1,8 +1,3 @@
-/*
- * GNU General Public License v2
- *
- * @version $Id$
- */
 package jtanks.game.screens.controls;
 
 import java.awt.Graphics2D;
@@ -47,9 +42,9 @@ public class Checkbox extends Control {
     @Override
     public void processEvent(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-            setChecked(checked() == false);
+            setChecked(!checked());
         } else if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-            setChecked(checked() == false);
+            setChecked(!checked());
         }
     }
 
@@ -63,7 +58,7 @@ public class Checkbox extends Control {
                 break;
             case MouseEvent.MOUSE_CLICKED:
                 if (model.isInside(e.getPoint())) {
-                    setChecked(checked() == false);
+                    setChecked(!checked());
                 }
                 break;
         }

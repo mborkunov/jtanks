@@ -1,8 +1,3 @@
-/*
- * GNU General Public License v2
- *
- * @version $Id: Area.java 307 2009-07-23 13:42:08Z ru.energy $
- */
 package jtanks.game.scene.landscapes;
 
 import java.awt.Graphics2D;

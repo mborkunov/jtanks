@@ -1,8 +1,3 @@
-/*
- * GNU General Public License v2
- *
- * @version $Id: Destroyable.java 297 2009-07-23 13:19:13Z ru.energy $
- */
 package jtanks.game.scene.landscapes;
 
 import java.awt.Graphics2D;
@@ -17,7 +12,6 @@ import jtanks.game.scene.units.Bullet;
 import jtanks.game.scene.units.Unit;
 import jtanks.game.util.Cache;
 import jtanks.system.ResourceManager;
-
 
 public strictfp class Destroyable extends Area {
 

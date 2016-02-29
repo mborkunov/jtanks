@@ -1,8 +1,3 @@
-/*
- * GNU General Public License v2
- * 
- * @version $Id$
- */
 package jtanks.system;
 
 import java.io.BufferedInputStream;
@@ -45,14 +40,10 @@ public class Config implements Iterable {
 
         String userHome = System.getProperty("user.home");
 
-        StringBuffer dirName = new StringBuffer(userHome).append(File.separator).append(JTANKS_DIR);
-
-        applicationDirectory = new File(dirName.toString());
+        applicationDirectory = new File(userHome + File.separator + JTANKS_DIR);
         configFile = new File(applicationDirectory, "config");
-        if (applicationDirectory.exists() == false) {
-            if (applicationDirectory.mkdir() == false) {
-                logger.log(Level.WARNING, "Cannot create application directory " + applicationDirectory);
-            }
+        if (!(applicationDirectory.exists() || applicationDirectory.mkdir())) {
+            logger.log(Level.WARNING, "Cannot create application directory " + applicationDirectory);
         }
         if (configFile.exists() && configFile.canRead()) {
             BufferedInputStream is = null;
@@ -70,7 +61,7 @@ public class Config implements Iterable {
                     logger.log(Level.SEVERE, "An error has occurred while reading config file", ex);
                 }
             }
-            if (exception == false) {
+            if (!exception) {
                 logger.info("Config file " + configFile.getAbsolutePath() + " was successfully loaded");
             }
         }
@@ -163,7 +154,7 @@ public class Config implements Iterable {
      */
     private void loadDefaultConfigValues() {
         for (Map.Entry<String,String> entry: defaults.entrySet()) {
-            if (properties.getProperty((String) entry.getKey()) == null) {
+            if (properties.getProperty(entry.getKey()) == null) {
                 properties.setProperty(entry.getKey(), entry.getValue());
             }
         }

@@ -1,8 +1,3 @@
-/*
- * GNU General Public License v2
- *
- * @version $Id$
- */
 package jtanks.system;
 
 import java.io.ByteArrayInputStream;
@@ -28,7 +23,7 @@ public class SoundManager {
     public void preload() {
 
         new Thread(new Runnable() {
-
+            @Override
             public void run() {
                 /**
                  * @todo: replace it by dynamic list loading
@@ -43,9 +38,9 @@ public class SoundManager {
     }
 
     private byte[] load(String sound) {
-        byte[] data = null;
+        byte[] data;
         if (cache.get(sound) != null) {
-            data = (byte[]) cache.get(sound);
+            data = cache.get(sound);
         } else {
             data = convertInputStream(ResourceManager.getStream("sounds/" + sound + ".wav"));
             cache.put(sound, data);

@@ -1,8 +1,3 @@
-/**
- * GNU General Public License v2
- * 
- * @version $Id$
- */
 package jtanks;
 
 import java.awt.event.WindowEvent;
@@ -84,7 +79,7 @@ public final class JTanks {
      * Change fullscreen mode
      */
     public void flipFullScreenMode() {
-        setFullScreenMode(display.isFullScreen() == false);
+        setFullScreenMode(!display.isFullScreen());
     }
 
     public GameState getGameState() {
@@ -97,7 +92,7 @@ public final class JTanks {
 
     public void quit() {
         turnOnRepeating();
-        ((DisplayManager) Registry.get(DisplayManager.class)).restoreDisplay();
+        Registry.get(DisplayManager.class).restoreDisplay();
         gameState.quit();
     }
 
@@ -167,8 +162,6 @@ public final class JTanks {
                 is = new BufferedInputStream(new FileInputStream(file));
                 LogManager.getLogManager().readConfiguration(is);
             }
-        } catch (FileNotFoundException ex) {
-            logger.log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
             logger.log(Level.SEVERE, null, ex);
         } finally {
@@ -230,7 +223,7 @@ public final class JTanks {
         canvas.requestFocus();
         canvas.setIgnoreRepaint(true);
 
-        logger.info("Window inialized");
+        logger.info("Window initialized");
     }
 
     /**

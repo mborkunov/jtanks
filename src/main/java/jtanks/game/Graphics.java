@@ -1,8 +1,3 @@
-/*
- * GNU General Public License v2
- *
- * @version $Id$
- */
 package jtanks.game;
 
 import java.awt.Canvas;
@@ -56,7 +51,7 @@ public final class Graphics {
 
     public void pause() {
         task.stop();
-        while (thread.getState().equals(State.TERMINATED) == false) {
+        while (!thread.getState().equals(State.TERMINATED)) {
             try {
                 Thread.sleep(10);
             } catch (InterruptedException ex) {
@@ -126,7 +121,7 @@ public final class Graphics {
 
             while (isRunning) {
                 render();
-                synchFramerate();
+                syncFramerate();
             }
         }
 
@@ -136,7 +131,7 @@ public final class Graphics {
 
         public void stop() {
             isRunning = false;
-            while (graphics.thread.getState().equals(Thread.State.TERMINATED) == false) {
+            while (!graphics.thread.getState().equals(Thread.State.TERMINATED)) {
                 try {
                     Thread.sleep(10);
                 } catch (InterruptedException ignored) {}
@@ -232,12 +227,12 @@ public final class Graphics {
             g.drawImage(alphaVersionImage, trans, null);
         }
 
-        private void synchFramerate() {
+        private void syncFramerate() {
             long worktime = System.currentTimeMillis() - cycleStartTime;
             if (workTimes.remainingCapacity() == 0) {
                 workTimes.poll();
             }
-            workTimes.offer(Integer.valueOf((int) worktime));
+            workTimes.offer((int) worktime);
 
             long diff = FRAME_DELAY - worktime;
             try {

@@ -1,8 +1,3 @@
-/*
- * GNU General Public License v2
- *
- * @version $Id$
- */
 package jtanks.system;
 
 import java.awt.Color;
@@ -135,7 +130,7 @@ public class ResourceManager {
 
     public static Quote getRandomQuote() {
 
-        ArrayList<Quote> quotes = quotes = (ArrayList<Quote>) cache.get("quotes", new Callable<ArrayList<Quote>>() {
+        ArrayList<Quote> quotes = (ArrayList<Quote>) cache.get("quotes", new Callable<ArrayList<Quote>>() {
 
             public ArrayList<Quote> call() {
                 String path = "resources/quotes.xml";
@@ -182,20 +177,16 @@ public class ResourceManager {
     }
 
     public static boolean fileExists(String filename) {
-        if (ResourceManager.getImageResource(filename) == null) {
-            return false;
-        } else {
-            return true;
-        }
+        return ResourceManager.getImageResource(filename) != null;
     }
 
     public static URL getImageResource(String name) {
-        String path = new StringBuffer("resources/images/").append(name).append(".png").toString();
+        String path = "resources/images/" + name + ".png";
         return Thread.currentThread().getContextClassLoader().getResource(path);
     }
     
     public static InputStream getStream(String name) {
-        String path = new StringBuffer("resources/").append(name).toString();
+        String path = "resources/" + name;
         return Thread.currentThread().getContextClassLoader().getResourceAsStream(path);
     }
 
@@ -209,7 +200,7 @@ public class ResourceManager {
 
         int i = 0;
         while (true) {
-            String file = new StringBuffer(source).append("-").append(i).toString();
+            String file = source + "-" + i;
             if (fileExists(file)) {
                 resources.add(getImageResource(file));
             } else {
@@ -261,15 +252,11 @@ public class ResourceManager {
                     Logger logger = Logger.getLogger(ResourceManager.class.getName());
                     try {
                         File dir = new File(JTANKS_USER_DIR + File.separator + "screenshots");
-
-                        if (dir.exists() == false) {
-                            if (dir.mkdir() == false) {
-                                logger.severe("Cannot create jtanks screenshot directory. (" + dir.getAbsolutePath() + ")");
-                                return;
-                            }
+                        if (!(dir.exists() || dir.mkdir())) {
+                            logger.severe("Cannot create jtanks screenshot directory. (" + dir.getAbsolutePath() + ")");
+                            return;
                         }
                         Calendar calendar = new GregorianCalendar();
-                        StringBuffer filename = new StringBuffer();
 
 
                         int year, month, date, hour, minute, second;
@@ -283,10 +270,8 @@ public class ResourceManager {
                         String dateString = new Formatter().format("%04d-%02d-%02d_%02d:%02d:%02d",
                                                 year, month, date, hour, minute, second).toString();
 
-                        filename.append("screenshot-")
-                                .append(dateString)
-                                .append(".png");
-                        File file = new File(dir, filename.toString());
+                        String filename = "screenshot-" + dateString + ".png";
+                        File file = new File(dir, filename);
                         ImageIO.write(screenshotImage, "png", file);
                         logger.info("Screenshot was successfully saved. Filename : " + file.getAbsolutePath());
                     } catch (IOException ex) {

@@ -1,8 +1,3 @@
-/*
- * GNU General Public License v2
- *
- * @version $Id$
- */
 package jtanks.game.screens;
 
 import java.awt.Color;
@@ -33,7 +28,6 @@ import jtanks.game.screens.helpers.MenuView;
 import jtanks.system.Registry;
 import jtanks.system.ResourceManager;
 import jtanks.system.SoundManager;
-
 
 public strictfp class Maps extends Screen {
 

@@ -1,9 +1,3 @@
-/*
- * GNU General Public License v2
- * 
- * @version $Id: State.java 281 2009-07-17 16:49:23Z ru.energy $
- */
-
 package jtanks.game.gameplay;
 
 public class State {

@@ -1,8 +1,3 @@
-/*
- * GNU General Public License v2
- *
- * @version $Id: Loading.java 287 2009-07-17 17:05:21Z ru.energy $
- */
 package jtanks.game.screens;
 import java.awt.Color;
 import java.awt.Font;

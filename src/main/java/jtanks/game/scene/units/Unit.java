@@ -1,8 +1,3 @@
-/*
- * GNU General Public License v2
- *
- * @version $Id: Unit.java 301 2009-07-23 13:29:23Z ru.energy $
- */
 package jtanks.game.scene.units;
 
 import java.awt.Graphics2D;
@@ -54,7 +49,7 @@ public abstract class Unit extends Node {
         lock.lock();
 
         try {
-            if (hidden == false)  {
+            if (!hidden)  {
                 final String cls = getClass().getSimpleName().toLowerCase();
                 Image image = (Image) cache.get("sprite", new Callable<Image>() {
                     public Image call() {

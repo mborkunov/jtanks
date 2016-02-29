@@ -1,28 +1,29 @@
-/*
- * GNU General Public License v2
- *
- * @version $Id: Model.java 261 2009-07-05 04:13:37Z ru.energy $
- */
 package jtanks.game.geometry;
 
 import java.awt.Point;
 
 public interface Model extends Cloneable {
 
-    public Position getOffset();
-    public void setOffset(Position offset);
+    Position getOffset();
 
-    public double getWidth();
-    public double getHeight();
-    public void setWidth(double width);
-    public void setHeight(double height);
+    void setOffset(Position offset);
+
+    double getWidth();
+
+    double getHeight();
+
+    void setWidth(double width);
+
+    void setHeight(double height);
 
     //public void setBounds(int x, int y, int width, int height);
-    public boolean intersects(Model model);
-    public boolean isInside(Point point);
+    boolean intersects(Model model);
 
-    public Position getPosition();
-    public void setPosition(Position position);
+    boolean isInside(Point point);
 
-    public Object clone();
+    Position getPosition();
+
+    void setPosition(Position position);
+
+    Object clone();
 }

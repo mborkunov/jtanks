@@ -1,8 +1,3 @@
-/*
- * GNU General Public License v2
- *
- * @version $Id$
- */
 package jtanks.game;
 
 import java.awt.Component;
@@ -21,7 +16,7 @@ public final class GameState {
     private static int counter = 1;
 
     public enum Status {
-        RUNNING, PAUSED;
+        RUNNING, PAUSED
     }
 
     protected Thread thread = new Thread();
@@ -97,7 +92,7 @@ public final class GameState {
         }
         Logger.getLogger(GameState.class.getName()).info("Game pause");
         task.isRunning = false;
-        while (thread.getState().equals(State.TERMINATED) == false) {
+        while (thread.getState() != State.TERMINATED) {
             try {
                 Thread.sleep(10);
             } catch (InterruptedException ex) {
@@ -107,7 +102,7 @@ public final class GameState {
     }
 
     public void resume() {
-        if (thread.getState().equals(State.TERMINATED) == false) {
+        if (thread.getState() != State.TERMINATED) {
             return;
         }
         Logger.getLogger(GameState.class.getName()).info("Game resume");

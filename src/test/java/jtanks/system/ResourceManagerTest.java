@@ -1,13 +1,6 @@
-/*
- * GNU General Public License v2
- *
- * @version $Id$
- */
 package jtanks.system;
 
 import java.awt.Cursor;
-import java.awt.Image;
-import java.awt.image.VolatileImage;
 import java.io.InputStream;
 import java.net.URL;
 import java.util.List;
@@ -17,7 +10,6 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import static java.lang.System.out;
 
 public class ResourceManagerTest {
 

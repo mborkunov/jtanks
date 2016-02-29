@@ -1,8 +1,3 @@
-/*
- * GNU General Public License v2
- * 
- * @version $Id$
- */
 package jtanks.system;
 
 import java.awt.event.KeyEvent;

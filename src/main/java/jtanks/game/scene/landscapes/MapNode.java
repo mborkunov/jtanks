@@ -1,11 +1,5 @@
-/*
- * GNU General Public License v2
- *
- * @version $Id: MapNode.java 308 2009-07-23 13:43:01Z ru.energy $
- */
 package jtanks.game.scene.landscapes;
 
-import jtanks.game.scene.Renderer;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.GraphicsEnvironment;

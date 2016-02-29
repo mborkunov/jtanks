@@ -1,8 +1,3 @@
-/*
- * GNU General Public License v2
- *
- * @version $Id: Renderer.java 300 2009-07-23 13:23:02Z ru.energy $
- */
 package jtanks.game.scene;
 
 import java.awt.Graphics2D;

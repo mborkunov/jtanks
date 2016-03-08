@@ -1,12 +1,8 @@
 [NAME]
 Master of deception
-[ABOUT]
-good map
-[WIDTH]
-11
-[HEIGHT]
-11
-[LAND]
+[SIZE]
+11x11
+[CONTENT]
            
 www cfffff  
    cfffffbb

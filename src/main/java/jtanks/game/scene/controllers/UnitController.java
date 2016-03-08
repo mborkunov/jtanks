@@ -27,7 +27,7 @@ public class UnitController extends Controller {
         if (node instanceof Unit) {
             this.unit = (Unit) node;
         } else {
-            throw new IllegalArgumentException("Controller can use only units");
+            throw new IllegalArgumentException("Controller can be used only by units");
         }
     }
 

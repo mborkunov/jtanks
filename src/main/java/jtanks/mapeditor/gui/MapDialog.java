@@ -87,7 +87,6 @@ public class MapDialog extends JDialog {
             getOKButton().setText(MESSAGES.getString("MapDialog.Update"));
 
             getNameTextField().setText(map.getName());
-            getAboutTextArea().setText(map.getAbout());
             getWidthTextField().setText(Integer.toString(map.getWidth()));
             getWidthTextField().setEnabled(false);
             getHeightTextField().setText(Integer.toString(map.getHeight()));
@@ -249,23 +248,25 @@ public class MapDialog extends JDialog {
                             && getWidthTextField().getText().isEmpty() == false
                             && getHeightTextField().getText().isEmpty() == false) {
                         if (createNew) {
-                            int x = 10;
+                            byte x = 10;
                             try {
-                                x = Integer.valueOf(getWidthTextField().getText());
+                                x = Byte.valueOf(getWidthTextField().getText());
                             } catch (final Exception ex) {
                             }
 
-                            int y = 10;
+                            byte y = 10;
                             try {
-                                y = Integer.valueOf(getHeightTextField().getText());
+                                y = Byte.valueOf(getHeightTextField().getText());
                             } catch (final Exception ex) {
                             }
 
-                            landscape.createNewMap(x < 10 ? 10 : x > 100 ? 100 : x, y < 10 ? 10 : y > 100 ? 100 : y,
-                                    getNameTextField().getText(), getAboutTextArea().getText());
+                            x = (byte) Math.min(Math.max(x, 10), 100);
+                            y = (byte) Math.min(Math.max(y, 10), 100);
+
+                            landscape.createNewMap(x, y, getNameTextField().getText());
 
                         } else {
-                            landscape.editMapSettings(getNameTextField().getText(), getAboutTextArea().getText());
+                            landscape.editMapSettings(getNameTextField().getText());
                         }
 
                         setVisible(false);

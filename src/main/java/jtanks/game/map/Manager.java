@@ -6,15 +6,14 @@ import java.util.logging.Logger;
 
 public class Manager {
 
-    private final String EXTENSION = "jtm";
+    private static final String EXTENSION = "jtm";
     private List<Map> maps = new ArrayList<Map>();
     private String mapFolder;
     private static Manager instance;
     private Logger logger = Logger.getLogger(Manager.class.getName());
 
     private Manager() {
-        this.mapFolder = "/resources/maps/";
-        init();
+        this("/resources/maps/");
     }
 
     private Manager(String mapFolder) {

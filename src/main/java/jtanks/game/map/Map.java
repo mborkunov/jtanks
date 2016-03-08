@@ -1,14 +1,10 @@
 package jtanks.game.map;
 
-import java.awt.Color;
-import java.awt.Graphics2D;
-import java.awt.GraphicsEnvironment;
-import java.awt.RenderingHints;
-import java.awt.Transparency;
+import java.awt.*;
 import java.awt.geom.AffineTransform;
+import java.awt.image.*;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.awt.image.VolatileImage;
 import java.io.IOException;
 import java.lang.reflect.Constructor;
 import java.util.logging.Level;
@@ -27,17 +23,14 @@ public class Map {
      * Map data storage
      */
     final int[] mapKeys = {"[NAME]".hashCode(),
-                           "[ABOUT]".hashCode(),
-                           "[WIDTH]".hashCode(),
-                           "[HEIGHT]".hashCode(),
-                           "[LAND]".hashCode()};
+                           "[SIZE]".hashCode(),
+                           "[CONTENT]".hashCode()};
     private Type[][] map;
     private String path;
     private String name;
     private int id;
-    private String about;
-    private int    width;
-    private int    height;
+    private byte    width;
+    private byte    height;
     private boolean hasForest;
     private boolean hasWater;
     private Position[] spawns;
@@ -75,13 +68,11 @@ public class Map {
              key = mapStream.readLine().hashCode();
              if (key == mapKeys[0]) {//get map name
                  this.name = mapStream.readLine();
-             } else if (key == mapKeys[1]) {//get map about
-                 this.about = mapStream.readLine();
-             } else if (key == mapKeys[2]) {//get map width
-                 this.width = Integer.parseInt(mapStream.readLine());
-             } else if (key == mapKeys[3]) {//get map height
-                 this.height = Integer.parseInt(mapStream.readLine());
-             } else if (key == mapKeys[4]) {//get map land
+             } else if (key == mapKeys[1]) {//get map size
+                 String[] size = mapStream.readLine().split("x");
+                 width  = Byte.parseByte(size[0]);
+                 height = Byte.parseByte(size[1]);
+             } else if (key == mapKeys[2]) {//get map land
                  this.map = new Type[this.width][this.height];
                  for (int y = 0; y < this.height; y++) {
                      line = mapStream.readLine();

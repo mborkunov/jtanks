@@ -86,19 +86,17 @@ public class Landscape {
         }
     }
 
-    public void editMapSettings(final String name, final String about) {
+    public void editMapSettings(final String name) {
         map.setName(name);
-        map.setAbout(about);
     }
 
-    public void createNewMap(final int x, final int y, final String name, final String about) {
+    public void createNewMap(byte x, byte y, String name) {
         matrixPanel.removeAll();
         matrixPanel.add(newMatrixPanel(x, y, false));
         matrixScrollPane.paintComponents(matrixScrollPane.getGraphics());
 
         map.createMatrix(x, y);
         map.setName(name);
-        map.setAbout(about);
     }
 
     public void loadMap(final String fileName) {

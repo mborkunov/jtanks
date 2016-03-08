@@ -1,12 +1,8 @@
 [NAME]
 Battle field
-[ABOUT]
-good map
-[WIDTH]
-10
-[HEIGHT]
-15
-[LAND]
+[SIZE]
+10x15
+[CONTENT]
           
   cff
 ffcww   b

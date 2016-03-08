@@ -1,12 +1,8 @@
 [NAME]
 The second map
-[ABOUT]
-Description
-[WIDTH]
-15
-[HEIGHT]
-11
-[LAND]
+[SIZE]
+15x11
+[CONTENT]
                
 bccc b   b cccb
 bbfffb   bfffbb

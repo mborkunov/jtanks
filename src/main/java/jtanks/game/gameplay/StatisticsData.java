@@ -172,7 +172,7 @@ public class StatisticsData implements Serializable, Iterable {
     /**
      * Return current statistics data as map
      *
-     * @return
+     * @return Current statistics as a simple key-value map
      */
     public Map<String,Object> toMap() {
         Map<String,Object> map = new HashMap<String,Object>();

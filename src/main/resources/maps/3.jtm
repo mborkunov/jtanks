@@ -1,12 +1,8 @@
 [NAME]
 Conflict
-[ABOUT]
-good map
-[WIDTH]
-11
-[HEIGHT]
-11
-[LAND]
+[SIZE]
+11x11
+[CONTENT]
            
    cf f f  
    cf f fbb

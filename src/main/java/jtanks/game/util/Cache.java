@@ -13,7 +13,7 @@ import java.util.logging.Logger;
  */
 public class Cache<K,V> {
 
-    public static final Cache GLOBAL = new Cache<Object,Object>();
+    public static final Cache<String, Object> GLOBAL = new Cache<String, Object>();
 
     private HashMap<K,V> storage = new HashMap<K,V>();
     private Lock lock = new ReentrantLock();

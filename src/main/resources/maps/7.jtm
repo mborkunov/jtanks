@@ -1,12 +1,8 @@
 [NAME]
 The end
-[ABOUT]
-Last challenge.
-[WIDTH]
-18
-[HEIGHT]
-13
-[LAND]
+[SIZE]
+18x13
+[CONTENT]
 
  bbbbb b   b bbbb
    b   b   b b

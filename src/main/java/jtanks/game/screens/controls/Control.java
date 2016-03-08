@@ -26,10 +26,10 @@ public abstract class Control extends Node implements Renderable {
     protected Binding binding;
 
     {
-        String stringFont = new StringBuffer(Config.getInstance().get("font.family"))
-                          .append(" ").append(Config.getInstance().get("font.style"))
-                          .append(" ").append(height).toString();
-        font = Font.decode(stringFont.toString());
+        String stringFont = Config.getInstance().get("font.family") +
+                " " + Config.getInstance().get("font.style") +
+                " " + height;
+        font = Font.decode(stringFont);
     }
 
     public Control(String name) {
@@ -41,7 +41,8 @@ public abstract class Control extends Node implements Renderable {
         controls.add(this);
     }
 
-    public void isActive() {
+    public boolean isEnabled() {
+        return enabled;
     }
 
     public void requestFocus() {

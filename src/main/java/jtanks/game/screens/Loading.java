@@ -123,7 +123,7 @@ class LoadingListener extends SystemListener {
     @Override
     public void keyPressed(KeyEvent e) {
         super.keyPressed(e);
-        if (screen.finished() && screen.loadableScreen != null && over == false) {
+        if (screen.finished() && screen.loadableScreen != null && !over) {
             over = true;
             JTanks.getInstance().getGameState().setScreen(screen.loadableScreen);
         } else {

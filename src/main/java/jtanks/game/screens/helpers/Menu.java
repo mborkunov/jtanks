@@ -10,7 +10,7 @@ public class Menu<T> {
     /**
      * Menu items storage
      */
-    private ArrayList<MenuItem> menu = new ArrayList<MenuItem>();
+    private ArrayList<MenuItem<T>> menu = new ArrayList<MenuItem<T>>();
 
     /**
      * Add new menu item to menu storage
@@ -28,7 +28,7 @@ public class Menu<T> {
      */
     public MenuItem<T> getSelected() {
         for (int i = 0; i < menu.size(); i++) {
-            MenuItem item = menu.get(i);
+            MenuItem<T> item = menu.get(i);
             if (item.isSelected()) {
                 return item;
             }
@@ -39,8 +39,7 @@ public class Menu<T> {
     public List<MenuItem> getNextItems(MenuItem item) {
         ArrayList<MenuItem> result = new ArrayList<MenuItem>();
         boolean found = false;
-        for (int i = 0; i < menu.size(); i++) {
-            MenuItem it = menu.get(i);
+        for (MenuItem<T> it : menu) {
             if (it == item) {
                 found = true;
                 continue;
@@ -54,7 +53,7 @@ public class Menu<T> {
 
     private List<MenuItem> getPreviousItems(MenuItem<T> item) {
         ArrayList<MenuItem> result = new ArrayList<MenuItem>();
-        boolean found = true;
+        boolean found = false;
         for (int i = menu.size() - 1; i >= 0; i--) {
             MenuItem it = menu.get(i);
             if (it == item) {

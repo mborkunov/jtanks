@@ -209,7 +209,7 @@ public final class Graphics {
 
         private void showSign(Graphics2D g) {
 
-            final VolatileImage alphaVersionImage = (VolatileImage) Cache.GLOBAL.get("alpha", new Callable<VolatileImage>() {
+            final VolatileImage alphaVersionImage = (VolatileImage) Cache.GLOBAL    .get("alpha", new Callable<VolatileImage>() {
                 public VolatileImage call() {
                     return ResourceManager.getVolatileImage("alpha");
                 }
